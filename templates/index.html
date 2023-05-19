@@ -1,0 +1,2912 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dowell Home</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script src="{%static 'js/script.js'%}"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.2/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <!-- top container  -->
+
+    <div class="container topbox">
+      <div class="row mt-5 mb-5">
+        <!-- image column  -->
+        <div class="col-lg-6 col-sm-12 col-md-6 col-xs-12 profile-image-col">
+          <div class="row">
+            <h5>
+              <small class="name-text"
+                >Hi [First Name] [Last Name], [Designation]</small
+              >
+            </h5>
+          </div>
+          <div class="row">
+            <p>
+              <b class="danger-text">Session starts at [time], [duration], [Location]</b>
+            </p>
+          </div>
+          <div class="row">
+            <div class="col-md-5 col-lg-6 col-sm-6 imageColumn1 text-center">
+              <img src="./images/your-photo.webp" class="img-thumbnail imageBox" alt="profile Image"/>
+            </div>
+            <div class="col-md-5 col-lg-6 col-sm-6 imageColumn2 text-center">
+              <img src="./images/select orga.webp" id="image2" class="img-thumbnail imageBox ms-5" alt="profile Image"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- information column  -->
+        <div class="col-lg-6 col-sm-12 col-md-6 col-xs-12 profile-info-col">
+          <div class="row buttonrow">
+            <div
+              class="col-lg-4 col-md-12 col-sm-12 col-xs-12"
+              id="settings-btn"
+            >
+              <button type="button" class="btn srl-btn">
+                <i class="bi bi-gear icon-style"></i>Settings
+              </button>
+            </div>
+            <div
+              class="col-lg-4 col-md-12 col-sm-12 col-xs-12"
+              id="refresh-btn"
+            >
+              <button type="button" class="btn srl-btn">
+                <i class="bi bi-arrow-counterclockwise icon-style"></i>Refresh
+              </button>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" id="logout-btn">
+              <button type="button" class="btn srl-btn">
+                <i class="bi bi-box-arrow-right icon-style"></i>Logout
+              </button>
+            </div>
+          </div>
+          <div class="row organizationRow mt-5">
+            <p class="connectText float-start">Select Organisation you want to connect</p>
+            <select
+              class="form-select org-select-input"
+              aria-label="Default select example"
+            >
+              <option selected>My Organisation, Owner Name</option>
+              <option value="1">My Organisation 02, Owner Name</option>
+              <option value="2">My Organisation 03, Owner Name</option>
+              <option value="3">My Organisation 04, Owner Name</option>
+              <option value="3">My Organisation 05, Owner Name</option>
+            </select>
+            <button
+              type="button"
+              class="btn show-org mt-2"
+              onclick="showOrgDetails()"
+            >
+              <b>Show Organisations details</b>
+            </button>
+
+            <div class="row mt-3">
+              <h4 id="showDetails"></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- top container end  -->
+
+    <!-- second container  -->
+    <div class="container mt-5">
+      <div class="row sidebarRow">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 left-column">
+           <!-- My Profile row  -->
+           <div class="row">
+            <div
+              class="card sidebar-card ms-auto me-auto"
+              style="width: 20rem"
+            >
+              <div class="card-body leftcardbody">
+                <h5 class="card-title sidebar-heading">My Profile</h5>
+                <!-- organisations   -->
+                <div class="wrapper">
+                  <div class="menu" id="menu-organisation">
+                    <a><i class="bi bi-caret-right-fill"></i> Organisations</a>
+                    
+                  </div>
+                </div>
+                <ol class="list" id="ddl-organisation">
+                  <li>
+                    Organisation 1 [Owner]
+                    <ol>
+                      <li>
+                        Product 1
+                        <span class="orange-text"
+                          >[Data type, Operational rights]</span
+                        >
+                        <ol>
+                          <li>Portfolio 1</li>
+                          <li>Portfolio 2</li>
+                        </ol>
+                      </li>
+
+                      <li>
+                        Product 2
+                        <span class="orange-text"
+                          >[Data type,<br />
+                          Operational rights]</span
+                        >
+                        <ol>
+                          <li>Portfolio 1</li>
+                          <li>Portfolio 2</li>
+                        </ol>
+                      </li>
+                    </ol>
+                  </li>
+                  <li>Organisation 2 [Owner]
+                    <ol>
+                      <li>
+                        Product 1
+                        <span class="orange-text"
+                          >[Data type, Operational rights]</span
+                        >
+                        <ol>
+                          <li>Portfolio 1</li>
+                          <li>Portfolio 2</li>
+                        </ol>
+                      </li>
+
+                      <li>
+                        Product 2
+                        <span class="orange-text"
+                          >[Data type,<br />
+                          Operational rights]</span
+                        >
+                        <ol>
+                          <li>Portfolio 1</li>
+                          <li>Portfolio 2</li>
+                        </ol>
+                      </li>
+                    </ol>
+                  </li>
+                  <li>Organisation 3 [Myself]
+                    <ol>
+                      <li>Product 1<span class="orange-text">[Data type, Operational rights]</span></li>
+                      <li>Product 2</li>
+                    </ol>
+                  </li>
+                  <li>My Organisation [Myself]
+                    <ol>
+                      <li>Product 1</li>
+                      <li>Product 2</li>
+                    </ol>
+                  </li>
+                  <li></li>
+                  <li></li>
+                </ol>
+                <!-- edit profile  -->
+                <div class="wrapper">
+                  <div class="menu" id="menu-edit-profile">
+                    <a><i class="bi bi-caret-right-fill"></i> Edit Profile</a>
+                    
+                  </div>
+                </div>
+                <ol class="list" id="ddl-edit-profile">
+                  <li>Photo</li>
+                  <li>Personal Details</li>
+                  <li>Photo</li>
+                  <li></li>
+                  <li></li>
+                </ol>
+                <!-- last logins   -->
+                <div class="wrapper">
+                  <div class="menu" id="menu-lastLogins">
+                    <a><i class="bi bi-caret-right-fill"></i> Last Logins</a>
+                   
+                  </div>
+                </div>
+                <ol class="list" id="ddl-lastLogins">
+                  <li>
+                    Login 1 details
+                    <ol>
+                      <li>Time</li>
+                    </ol>
+                  </li>
+                  <li>
+                    Login 2 details
+                    <ol>
+                      <li>Time</li>
+                    </ol>
+                  </li>
+                  <li>
+                    Login 3 details
+                    <ol>
+                      <li>Time</li>
+                    </ol>
+                  </li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          
+          <!-- notification row  -->
+          <div class="row">
+            <div
+              class="card sidebar-card ms-auto me-auto"
+              style="width: 20rem"
+            >
+              <div class="card-body leftcardbody">
+                <h5 class="card-title sidebar-heading">Notifications</h5>
+                <!-- notifications   -->
+                <div class="wrapper">
+                  <div class="menu" id="menu">
+                    <a><i class="bi bi-caret-right-fill"></i> Team Member chat(098)</a>
+                  </div>
+                </div>
+                <ol class="list" id="ddl">
+                  <li>Member 1</li>
+                  <li>Member 2</li>
+                  <li>Member 3</li>
+                </ol>
+
+                <!-- guest chat  -->
+                <div class="wrapper">
+                  <div class="menu" id="menu-chat">
+                    <a><i class="bi bi-caret-right-fill"></i> User Chat (09)</a>
+                    
+                  </div>
+                </div>
+                <ol class="list" id="ddl-chat">
+                  <li>User 1</li>
+                  <li>User 2</li>
+                  <li>User 3</li>
+                  <li>User 4</li>
+                </ol>
+                <!-- public chat  -->
+                <div class="wrapper">
+                  <div class="menu" id="menu-public">
+                    <a
+                      ><i class="bi bi-caret-right-fill"></i> Public Chat
+                      (0045)</a
+                    >
+                    
+                  </div>
+                </div>
+                <ol class="list" id="ddl-public">
+                  <li>Public 1</li>
+                  <li>Public 2</li>
+                  <li>Public 3</li>
+                  <li>Public 4</li>
+                </ol>
+                <!-- ux living lab chat  -->
+                <div class="wrapper">
+                  <div class="menu" id="menu-ux">
+                    <a
+                      ><i class="bi bi-caret-right-fill"></i> UX Living Lab
+                      Chat</a
+                    >
+                    
+                  </div>
+                </div>
+                <ol class="list" id="ddl-ux">
+                  <li>Product 1</li>
+                  <li>Product 2</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- announcements row  -->
+          <div class="row">
+            <div
+              class="card sidebar-card ms-auto me-auto mt-4"
+              style="width: 20rem"
+            >
+              <div class="card-body leftcardbody">
+                <h5 class="card-title sidebar-heading">Announcements</h5>
+                <!-- announcement   -->
+                <div class="wrapper">
+                  <div class="menu" id="menu-announce">
+                    <a
+                      ><i class="bi bi-caret-right-fill"></i> To Team Members</a
+                    >
+                    
+                  </div>
+                </div>
+                <ol class="list" id="ddl-announce">
+                  <li>Announcement 1</li>
+                  <li>Announcement 2</li>
+                  <li>Announcement 3</li>
+                  <li></li>
+                  <li></li>
+                </ol>
+                <!-- guest announcement  -->
+                <div class="wrapper">
+                  <div class="menu" id="menu-guest">
+                    <a><i class="bi bi-caret-right-fill"></i> To Users</a>
+                    
+                  </div>
+                </div>
+                <ol class="list" id="ddl-guest">
+                  <li>Announcement 1</li>
+                  <li>Announcement 2</li>
+                  <li>Announcement 3</li>
+                  <li></li>
+                  <li></li>
+                </ol>
+                <!-- public announcement  -->
+                <div class="wrapper">
+                  <div class="menu" id="menu-public-announce">
+                    <a><i class="bi bi-caret-right-fill"></i> To Public</a>
+                    
+                  </div>
+                </div>
+                <ol class="list" id="ddl-public-announce">
+                  <li>Announcement 1</li>
+                  <li>Announcement 2</li>
+                  <li>Announcement 3</li>
+                  <li></li>
+                  <li></li>
+                </ol>
+                <!-- ux living lab announcement  -->
+                <div class="wrapper">
+                  <div class="menu" id="menu-ux-announce">
+                    <a
+                      ><i class="bi bi-caret-right-fill"></i> From UX Living
+                      Lab</a
+                    >
+                    
+                  </div>
+                </div>
+                <ol class="list" id="ddl-ux-announce">
+                      <li>Announcement 1</li>
+                      <li>Announcement 2</li>
+                      <li>Announcement 3</li>
+                      <li></li>
+                  <li></li>
+                    </ol>
+              </div>
+            </div>
+          </div>
+
+         
+
+          <!-- organisations row  -->
+          <div class="row">
+            <div
+              class="card sidebar-card ms-auto me-auto mt-4"
+              style="width: 20rem"
+            >
+              <div class="card-body leftcardbody">
+                <h5 class="card-title sidebar-heading">My Organisation</h5>
+                <!-- products   -->
+                <div class="wrapper">
+                  <div class="menu" id="menu-products">
+                    <a><i class="bi bi-caret-right-fill"></i> Products (007)</a>
+                    
+                  </div>
+                </div>
+                <ol class="list" id="ddl-products">
+                  <li>Workflow AI</li>
+                  <li>Wifi QR Code</li>
+                  <li>Digital Q</li>
+                </ol>
+                <!-- members  -->
+                <div class="wrapper">
+                  <div class="menu" id="menu-members">
+                    <a
+                      ><i class="bi bi-caret-right-fill"></i>Team Members (00025)</a
+                    >
+                   
+                  </div>
+                </div>
+                <ol class="list" id="ddl-members">
+                  <li>Team Member 1 [Active/ Live/ Disabled]</li>
+                  <li>Team Member 2 [Active/ Live/ Disabled]</li>
+                  <li>Team Member 3 [Active/ Live/ Disabled]</li>
+                  <li>Team Member 4 [Active/ Live/ Disabled]</li>
+                </ol>
+                <!-- guests 0000235   -->
+                <div class="wrapper">
+                  <div class="menu" id="menu-guest00">
+                    <a
+                      ><i class="bi bi-caret-right-fill"></i> Users
+                      (0000234)</a
+                    >
+                    
+                  </div>
+                </div>
+                <ol class="list" id="ddl-guest00">
+                  <p><b>Search Guests</b></p>
+                  <li>User 1 [Active/ Live/ Disabled]</li>
+                  <li>User 2 [Active/ Live/ Disabled]</li>
+                  <li>User 3 [Active/ Live/ Disabled]</li>
+                  <li>User 4 [Active/ Live/ Disabled]</li>
+                </ol>
+                <!-- public 009   -->
+                <div class="wrapper">
+                  <div class="menu" id="menupublicorg">
+                    <a><i class="bi bi-caret-right-fill"></i> Public (009)</a>
+                    
+                  </div>
+                </div>
+                <ol class="list" id="ddlpublicorg">
+                  <p>Active Public IDs</p>
+                  <li>QR code ID 1</li>
+                  <li>QR code ID 2</li>
+                  <li>QR code ID 3</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- customer support error report container  -->
+          <div class="row customerError mt-4 p-2">
+            <div class="col">
+              <button type="button" class="btn btn-outline-danger btn-sm ce-btn">Customer Support</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-danger btn-sm ce-btn">Error Report</button>
+            </div>
+          </div>
+        </div>
+        <!-- left container end  -->
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 tabsrow mt-3">
+          <!-- first button row  -->
+          <div class="row text-center">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <button type="button" class="btn btn-outline-secondary first_row_btn" onclick="openCity(event, 'Product')"><i class="bi bi-gem first_row_icon"></i>Products</button>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <button type="button" class="btn btn-outline-secondary first_row_btn" onclick="openCity(event, 'Portfolio')"><i class="bi bi-book-fill first_row_icon"></i>Portfolio</button>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <button type="button" class="btn btn-outline-secondary first_row_btn" onclick="openCity(event, 'Members')"><i class="bi bi-people-fill first_row_icon"></i>Members</button>
+            </div>
+          </div>
+          <!-- second button  row -->
+          <div class="row text-center mt-4">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <button type="button" class="btn btn-outline-secondary second_row_btn" onclick="openCity(event, 'Roles')"><i class="bi bi-diagram-3-fill first_row_icon"></i>Roles</button>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <button type="button" class="btn btn-outline-secondary second_row_btn" onclick="openCity(event, 'Levels')"><i class="bi bi-arrow-90deg-down first_row_icon"></i>Levels</button>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <button type="button" class="btn btn-outline-secondary second_row_btn" onclick="openCity(event, 'Layers')"><i class="bi bi-layer-forward first_row_icon"></i>Layers</button>
+            </div>
+          </div>
+
+          <!-- products tab content  -->
+          <div class="mt-5">
+            <div id="Product" class="tabcontent">
+              <p class="product_tagline"><b><i>Products of <span class="orange-text">[Organisation]</span>, Owner <span class="orange-text">[Owner Name]</span></i></b></p>
+              <p class="product_tagline"><b><i>Select product & Portfolio to connect</i></b></p>
+            <!-- card section  -->
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="./images/Workflow-AI-2.png" alt="">
+                    <div class="overlay">
+                       <h2>Workflow AI</h2>
+                       <select class="form-select org-select-input" aria-label="Default select example">
+                        <option selected>Portfolio 01, Role Name, Member Type</option>
+                        <option value="1">Portfolio 02, Role Name, Member Type</option>
+                        <option value="1">Portfolio 03, Role Name, Member Type</option>
+                      </select>
+                       <a class="info" href="#">Connect</a>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="./images/Wifi-QR-Code-1.png" alt="">
+                    <div class="overlay">
+                       <h2>Wifi QR Code</h2>
+                       <select class="form-select org-select-input" aria-label="Default select example">
+                        <option selected>Portfolio 01, Role Name, Member Type</option>
+                        <option value="1">Portfolio 02, Role Name, Member Type</option>
+                        <option value="1">Portfolio 03, Role Name, Member Type</option>
+                      </select>
+                       <a class="info" href="#">Connect</a>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="./images/UX-Live-1.png" alt="">
+                    <div class="overlay">
+                       <h2>UX Live</h2>
+                       <select class="form-select org-select-input" aria-label="Default select example">
+                        <option selected>Portfolio 01, Role Name, Member Type</option>
+                        <option value="1">Portfolio 02, Role Name, Member Type</option>
+                        <option value="1">Portfolio 03, Role Name, Member Type</option>
+                      </select>
+                       <a class="info" href="#">Connect</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- second card images row  -->
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="./images/Social-media-automation-1.png" alt="">
+                    <div class="overlay">
+                       <h2>Social Media Automation</h2>
+                       <select class="form-select org-select-input" aria-label="Default select example">
+                        <option selected>Portfolio 01, Role Name, Member Type</option>
+                        <option value="1">Portfolio 02, Role Name, Member Type</option>
+                        <option value="1">Portfolio 03, Role Name, Member Type</option>
+                      </select>
+                       <a class="info" href="#">Connect</a>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="./images/Scales-1.png" alt="">
+                    <div class="overlay">
+                       <h2>DoWell Scales</h2>
+                       <select class="form-select org-select-input" aria-label="Default select example">
+                        <option selected>Portfolio 01, Role Name, Member Type</option>
+                        <option value="1">Portfolio 02, Role Name, Member Type</option>
+                        <option value="1">Portfolio 03, Role Name, Member Type</option>
+                      </select>
+                       <a class="info" href="#">Connect</a>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="./images/Logo-Scan-1.png" alt="">
+                    <div class="overlay">
+                       <h2>Logo Scan</h2>
+                       <select class="form-select org-select-input" aria-label="Default select example">
+                        <option selected>Portfolio 01, Role Name, Member Type</option>
+                        <option value="1">Portfolio 02, Role Name, Member Type</option>
+                        <option value="1">Portfolio 03, Role Name, Member Type</option>
+                      </select>
+                       <a class="info" href="#">Connect</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+              <!-- third card images row  -->
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="hovereffect">
+                      <img class="img-responsive" src="./images/Livinglab-chat-1.png" alt="">
+                      <div class="overlay">
+                         <h2>Living Lab Chat</h2>
+                         <select class="form-select org-select-input" aria-label="Default select example">
+                          <option selected>Portfolio 01, Role Name, Member Type</option>
+                          <option value="1">Portfolio 02, Role Name, Member Type</option>
+                          <option value="1">Portfolio 03, Role Name, Member Type</option>
+                        </select>
+                         <a class="info" href="#">Connect</a>
+                      </div>
+                  </div>
+                </div>
+  
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="hovereffect">
+                      <img class="img-responsive" src="./images/Legalzard-1.png" alt="">
+                      <div class="overlay">
+                         <h2>Legal Xard</h2>
+                         <select class="form-select org-select-input" aria-label="Default select example">
+                          <option selected>Portfolio 01, Role Name, Member Type</option>
+                          <option value="1">Portfolio 02, Role Name, Member Type</option>
+                          <option value="1">Portfolio 03, Role Name, Member Type</option>
+                        </select>
+                         <a class="info" href="#">Connect</a>
+                      </div>
+                  </div>
+                </div>
+  
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="hovereffect">
+                      <img class="img-responsive" src="./images/dowell-maps-1.png" alt="">
+                      <div class="overlay">
+                         <h2>DoWell Maps</h2>
+                         <select class="form-select org-select-input" aria-label="Default select example">
+                          <option selected>Portfolio 01, Role Name, Member Type</option>
+                          <option value="1">Portfolio 02, Role Name, Member Type</option>
+                          <option value="1">Portfolio 03, Role Name, Member Type</option>
+                        </select>
+                         <a class="info" href="#">Connect</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+            <!-- fourth card images row  -->
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="./images/Digital-Q-1.png" alt="">
+                    <div class="overlay">
+                       <h2>Digital Queue</h2>
+                       <select class="form-select org-select-input" aria-label="Default select example">
+                        <option selected>Portfolio 01, Role Name, Member Type</option>
+                        <option value="1">Portfolio 02, Role Name, Member Type</option>
+                        <option value="1">Portfolio 03, Role Name, Member Type</option>
+                      </select>
+                       <a class="info" href="#">Connect</a>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="./images/Customer-experience-1.png" alt="">
+                    <div class="overlay">
+                       <h2>Customer Experience</h2>
+                       <select class="form-select org-select-input" aria-label="Default select example">
+                        <option selected>Portfolio 01, Role Name, Member Type</option>
+                        <option value="1">Portfolio 02, Role Name, Member Type</option>
+                        <option value="1">Portfolio 03, Role Name, Member Type</option>
+                      </select>
+                       <a class="info" href="#">Connect</a>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="./images/Living-Lab-Admin-1.png" alt="">
+                    <div class="overlay">
+                       <h2>Client Admin</h2>
+                       <select class="form-select org-select-input" aria-label="Default select example">
+                        <option selected>Portfolio 01, Role Name, Member Type</option>
+                        <option value="1">Portfolio 02, Role Name, Member Type</option>
+                        <option value="1">Portfolio 03, Role Name, Member Type</option>
+                      </select>
+                       <a class="info" href="#">Connect</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- fifth card images row  -->
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="./images/Social-media-automation-2.png" alt="">
+                    <div class="overlay">
+                       <h2>Team Management</h2>
+                       <select class="form-select org-select-input" aria-label="Default select example">
+                        <option selected>Portfolio 01, Role Name, Member Type</option>
+                        <option value="1">Portfolio 02, Role Name, Member Type</option>
+                        <option value="1">Portfolio 03, Role Name, Member Type</option>
+                      </select>
+                       <a class="info" href="#">Connect</a>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="./images/Living-Lab-Admin-2.png" alt="">
+                    <div class="overlay">
+                       <h2>Living Lab Monitoring</h2>
+                       <select class="form-select org-select-input" aria-label="Default select example">
+                        <option selected>Portfolio 01, Role Name, Member Type</option>
+                        <option value="1">Portfolio 02, Role Name, Member Type</option>
+                        <option value="1">Portfolio 03, Role Name, Member Type</option>
+                      </select>
+                       <a class="info" href="#">Connect</a>
+                    </div>
+                </div>
+              </div>
+
+              
+            </div>
+            <!-- card section end  -->
+             <!-- form section  -->
+             <form>
+              <div class="mb-3">
+              <label for="formGroupExampleInput2" class="form-label">Select Product</label>
+              <select class="form-select" aria-label="Default select example">
+                <option value="1" selected>Product 01</option>
+                <option value="2">Product 02</option>
+                <option value="3">Product 03</option>
+                <option value="3">Product 04</option>
+                <option value="3">Product 05</option>
+                <option value="3">Product 06</option>
+
+              </select>
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Select Portfolio</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option value="1" selected>Portfolio Name 01, Role Name, Member Type</option>
+                  <option value="2">Portfolio Name 02, Role Name, Member Type</option>
+                  <option value="3">Portfolio Name 03, Role Name, Member Type</option>
+                  <option value="4">Portfolio Name 04, Role Name, Member Type</option>
+                  <option value="5">Portfolio Name 05, Role Name, Member Type</option>
+                  <option value="6">Portfolio Name 06, Role Name, Member Type</option>
+  
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Details of Selected Portfolio</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="<portfolio name, code, spec, universal code, details> <member name, code, spec, universal code, details> <member type> <data type> <operational rights>  <role Name, code, spec, universal code, details> <(level 1 name,Item name), (level 2 name,Item name), (level 3 name,Item name), (level 4 name,Item name), (level 5 name,Item name)> <layer #>"></textarea>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn product-btn" type="button">Click here to connect selected Portfolio in Selected Product</button>
+              </div>
+              
+            </form>
+            </div>
+          </div>
+            
+
+            <!-- portfolio tab content  -->
+            <div id="Portfolio" class="tabcontent">
+              <div class="row">
+                <!-- first column  -->
+                <div class="col-sm-12 col-md-6 col-lg-6 portfolio_first_col">
+                  <!-- header container  -->
+                  <div class="row green-container mt-3">
+                    <p class="text-center">PORTFOLIO</p>
+                    <p class="text-center">Total enabled portfolios</p>
+                  </div>
+
+                  <p class="portfolio-tagline"><b><i>Assign Portfolio – Products, Data types, Operational Rights and Roles to Members</i></b></p>
+                  <form>
+                    <div class="mb-3">
+                      <label for="member-type" class="form-label">Select Member Type<span class="red_asterisk">*</span></label>
+                      <select class="form-select" id="member-type" aria-label="Default select example">
+                        <option value="1" selected>Owner</option>
+                        <option value="2">Team Member</option>
+                        <option value="3">User</option>
+                        <option value="3">Public</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="member" class="form-label">Select Member<span class="red_asterisk">*</span></label>
+                      <select class="form-select" id="member" multiple aria-label="multiple select example">
+                        <option selected>Member 01</option>
+                        <option value="1">Member 02</option>
+                        <option value="2">Member 03</option>
+                        <option value="3">Member 04</option>
+                        <option></option>
+                        <option></option>
+                        <option></option>
+                        <option></option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                    <label for="select-product" class="form-label">Select Product<span class="red_asterisk">*</span></label>
+                    <select class="form-select" id="select-product" aria-label="Default select example">
+                      <option value="1" selected>Product 01</option>
+                      <option value="2">Product 02</option>
+                      <option value="3">Product 03</option>
+                      <option value="3">Product 04</option>
+                      <option value="3">Product 05</option>
+                      <option value="3">Product 06</option>
+      
+                    </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="select-data-type" class="form-label">Select Data Type<span class="red_asterisk">*</span></label>
+                      <select class="form-select" id="select-data-type" aria-label="Default select example">
+                        <option value="1" selected>Real Data</option>
+                        <option value="2">Learning Data</option>
+                        <option value="3">Testing Data</option>
+                        <option value="3">Archived Data</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="select-operational-rights" class="form-label">Select Operational Rights<span class="red_asterisk">*</span></label>
+                      <select class="form-select" id="select-operational-rights" aria-label="Default select example">
+                        <option value="1" selected>View</option>
+                        <option value="2">Add/Edit</option>
+                        <option value="3">Delete</option>
+                        <option value="3">Admin</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="select-roles" class="form-label">Select Roles<span class="red_asterisk">*</span></label>
+                      <select class="form-select" id="select-roles" aria-label="Default select example">
+                        <option value="1" selected>Role 01</option>
+                        <option value="2">Role 02</option>
+                        <option value="3">Role 03</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="portfolioName" class="form-label">Portfolio Name<span class="red_asterisk">*</span></label>
+                      <input type="text" class="form-control" id="portfolioName" placeholder="Portfolio name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="portfolioCode" class="form-label">Portfolio Code (Unique)<span class="red_asterisk">*</span></label>
+                      <input type="text" class="form-control" id="portfolioCode" placeholder="Portfolio code">
+                    </div>
+                    <div class="mb-3">
+                      <label for="portfolioSpec" class="form-label">Portfolio Specifications</label>
+                      <input type="text" class="form-control" id="portfolioSpec" placeholder="Portfolio Specifications">
+                    </div>
+                    <div class="mb-3">
+                      <label for="portfoliounicode" class="form-label">Portfolio Universal Code</label>
+                      <input type="text" class="form-control" id="portfoliounicode" placeholder="Portfolio universal code">
+                    </div>
+                    <div class="mb-3">
+                      <label for="portfoliodetails" class="form-label">Portfolio Details</label>
+                      <textarea type="text" class="form-control" id="portfoliodetails" rows="3" placeholder="Portfolio details"></textarea>
+                    </div>
+                    <div class="d-grid gap-2 mb-3">
+                      <button class="btn product-btn" type="button">Create Portfolio</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- second portfolio column  -->
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <p class="portfolio-tagline2"><b><i>Show Assigned Portfolios, Search in Portfolios</i></b></p>
+                  <form>
+                    <div class="mb-3">
+                      <label for="memberType" class="form-label">Member Type</label>
+                      <select class="form-select" id="memberType" multiple aria-label="multiple select example">
+                        <option selected>Owner</option>
+                        <option value="1">Team Member</option>
+                        <option value="2">User</option>
+                        <option value="3">Public</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="member" class="form-label">Member</label>
+                      <select class="form-select" id="member" multiple aria-label="multiple select example">
+                        <option selected>Member 01</option>
+                        <option value="1">Member 02</option>
+                        <option value="2">Member 03</option>
+                        <option value="3">Member 04</option>
+                        <option value="4">Member 05</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="Product" class="form-label">Product</label>
+                      <select class="form-select" id="Product" multiple aria-label="multiple select example">
+                        <option selected>Product 01</option>
+                        <option value="1">Product 02</option>
+                        <option value="2">Product 03</option>
+                        <option value="3">Product 04</option>
+                        <option value="4">Product 05</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="dataType" class="form-label">Data Type</label>
+                      <select class="form-select" id="dataType" multiple aria-label="multiple select example">
+                        <option selected>Real Data</option>
+                        <option value="1">Learning Data</option>
+                        <option value="2">Testing Data</option>
+                        <option value="3">Archived Data</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="operationalRights" class="form-label">Operational Rights</label>
+                      <select class="form-select" id="operationalRights" multiple aria-label="multiple select example">
+                        <option selected>View</option>
+                        <option value="1">Add/Edit</option>
+                        <option value="2">Delete</option>
+                        <option value="3">Admin</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="roles" class="form-label">Roles</label>
+                      <select class="form-select" id="roles" multiple aria-label="multiple select example">
+                        <option selected>Role 01</option>
+                        <option value="1">Role 02</option>
+                        <option value="2">Role 03</option>
+                        <option value="3">Role 04</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="enabledPortfolios" class="form-label">Enabled Portfolios</label>
+                      <select class="form-select" id="enabledPortfolios" aria-label="Default select example">
+                        <option value="1" selected>Portfolio Name 01, Role Name, Member Type</option>
+                        <option value="2" >Portfolio Name 02, Role Name, Member Type</option>
+                        <option value="3" >Portfolio Name 03, Role Name, Member Type</option>
+                        <option value="4" >Portfolio Name 04, Role Name, Member Type</option>
+                        <option value="5" >Portfolio Name 05, Role Name, Member Type</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="disabledPortfolios" class="form-label">Enabled Portfolios</label>
+                      <select class="form-select" id="disabledPortfolios" aria-label="Default select example">
+                        <option value="1" selected>Portfolio Name 01, Role Name, Member Type</option>
+                        <option value="2" >Portfolio Name 02, Role Name, Member Type</option>
+                        <option value="3" >Portfolio Name 03, Role Name, Member Type</option>
+                        <option value="4" >Portfolio Name 04, Role Name, Member Type</option>
+                        <option value="5" >Portfolio Name 05, Role Name, Member Type</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="detailsOfPortfolio" class="form-label">Details of selected Portfolio</label>
+                      <textarea type="text" class="form-control" id="detailsOfPortfolio" rows="3" placeholder="<portfolio name, code, spec, universal code, details> <member name, code, spec, universal code, details> <member type> <data type> <operational rights>  <role Name, code, spec, universal code, details> <(level 1 name,Item name), (level 2 name,Item name), (level 3 name,Item name), (level 4 name,Item name), (level 5 name,Item name)> <layer #>"></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="enabled/disablePortfolios" class="form-label">Enable / Disable Selected Portfolio</label>
+                      <select class="form-select" id="enabled/disablePortfolios" aria-label="Default select example">
+                        <option value="enable" selected>Enable</option>
+                        <option value="disable" >Disable</option>
+                       </select>
+                    </div>
+                    <div class="d-grid gap-2 mb-3">
+                      <button class="btn product-btn" type="button">Enable / Disable Selected Portfolio</button>
+                      <button class="btn product-btn" type="button">Duplicate selected Portfolio to create new</button>
+                      <button class="btn product-btn" type="button">Refresh Search</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+            
+
+            <!-- members tab content  -->
+            <div id="Members" class="tabcontent">
+              <ul class="nav nav-pills mb-3 row" id="pills-tab" role="tablist">
+                <li class="nav-item col-lg-4 col-md-4 col-sm-12" role="presentation">
+                  <button class="nav-link active memebrsBtn" id="pills-teamMember-tab" data-bs-toggle="pill" data-bs-target="#pills-teamMember" type="button" role="tab" aria-controls="pills-teamMember" aria-selected="true"><i class="bi bi-person-fill me-5"></i>Team Member</button>
+                </li>
+                <li class="nav-item col-lg-4 col-md-4 col-sm-12" role="presentation">
+                  <button class="nav-link memebrsBtn" id="pills-user-tab" data-bs-toggle="pill" data-bs-target="#pills-user" type="button" role="tab" aria-controls="pills-user" aria-selected="false"><i class="bi bi-person-fill me-5"></i>User</button>
+                </li>
+                <li class="nav-item col-lg-4 col-md-4 col-sm-12" role="presentation">
+                  <button class="nav-link memebrsBtn" id="pills-public-tab" data-bs-toggle="pill" data-bs-target="#pills-public" type="button" role="tab" aria-controls="pills-public" aria-selected="false"><i class="bi bi-person-fill me-5"></i>Public</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <!-- team members content  -->
+                <div class="tab-pane fade show active" id="pills-teamMember" role="tabpanel" aria-labelledby="pills-teamMember-tab" tabindex="0">
+                  <div class="container row">
+                    <!-- team member first column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                      <!-- header container  -->
+                      <div class="row green-container mt-3">
+                        <p class="text-center text-uppercase">Team Members</p>
+                        <p class="text-center">Total active team members</p>
+                      </div>
+    
+                      <p class="portfolio-tagline"><b><i>Invite TEAM MEMBER to my organisation</i></b></p>
+                      <form>
+                        <div class="mb-3">
+                          <label for="teamMemberName" class="form-label">Team Member Name<span class="red_asterisk">*</span></label>
+                          <input type="text" class="form-control" id="teamMemberName" placeholder="Member name">
+                        </div>
+                        <div class="mb-3">
+                          <label for="teamMemberCode" class="form-label">Team Member Code (Unique)<span class="red_asterisk">*</span></label>
+                          <input type="text" class="form-control" id="teamMemberCode" placeholder="Member code">
+                        </div>
+                        <div class="mb-3">
+                          <label for="teamMemberSpec" class="form-label">Team Member Specification</label>
+                          <input type="text" class="form-control" id="teamMemberSpec" placeholder="Member Specification">
+                        </div>
+                        <div class="mb-3">
+                          <label for="memeberunicode" class="form-label">Team Member Universal Code</label>
+                          <input type="text" class="form-control" id="memeberunicode" placeholder="Member universal code">
+                        </div>
+                        <div class="mb-3">
+                          <label for="memberdetails" class="form-label">Team Member Details</label>
+                          <textarea type="text" class="form-control" id="memberdetails" rows="3" placeholder="Member details"></textarea>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Create Team Member Invitation Link</button>
+                        </div>
+                      </form>
+                      <div class="row light-green-container mt-3">
+                        <p class="text-center">Team Member Invitation Link</p>
+                      </div>
+                      <form>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Copy Invitation Link</button>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email of invitee">
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Send Invitation Link in Email</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- team member second column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col bg-white">
+                         
+                      <p class="portfolio-tagline"><b><i>Search Team Members in my organisation</i></b></p>
+                      <form>
+                        <div class="mb-3">
+                          <label for="member" class="form-label">Team Members not having Portfolio<span class="red_asterisk">*</span></label>
+                          <select class="form-select" id="member"  multiple aria-label="multiple select example">
+                            <option selected>Member 01</option>
+                            <option value="1">Member 02</option>
+                            <option value="2">Member 03</option>
+                            <option value="3">Member 04</option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="member" class="form-label">Team Members having assigned Portfolio<span class="red_asterisk">*</span></label>
+                          <select class="form-select" id="member"  multiple aria-label="multiple select example">
+                            <option selected>Member 01</option>
+                            <option value="1">Member 02</option>
+                            <option value="2">Member 03</option>
+                            <option value="3">Member 04</option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                          </select>
+                        </div>
+                       
+                        <div class="mb-3">
+                          <label for="searchTeam" class="form-label">Search Team Members<span class="red_asterisk">*</span></label>
+                          <input type="text" class="form-control" id="searchTeam" placeholder="Name">
+                        </div>
+                       <div class="mb-3">
+                          <label for="teamMemeberDetails" class="form-label">Details of selected Team members</label>
+                          <textarea type="text" class="form-control" id="teamMemeberDetails" rows="3" placeholder="<portfolio name, code, spec, universal code, details> <member name, code, spec, universal code, details> <member type> <data type> <operational rights>  <role Name, code, spec, universal code, details> <(level 1 name,Item name), (level 2 name,Item name), (level 3 name,Item name), (level 4 name,Item name), (level 5 name,Item name)> <layer #>"></textarea>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Remove Selected Team Memeber</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- team member third column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                     <form>
+                        <div class="mb-3 mt-5">
+                          <label for="Invitedmember" class="form-label">Invited Team Members</label>
+                          <select class="form-select" id="Invitedmember" multiple aria-label="multiple select example">
+                            <option selected>Member 01</option>
+                            <option value="1">Member 02</option>
+                            <option value="2">Member 03</option>
+                            <option value="3">Member 04</option>
+                            <option value="5">Member 05</option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="SearchInvitedMember" class="form-label">Search Invited Team Members</label>
+                          <input type="text" class="form-control" id="SearchInvitedMember" placeholder="Name">
+                        </div>
+                        <div class="mb-3">
+                          <label for="InvitedMembersDetails" class="form-label">Details of Invited Team Members</label>
+                          <textarea type="text" class="form-control" id="InvitedMembersDetails" rows="3" placeholder="<portfolio name, code, spec, universal code, details> <member name, code, spec, universal code, details> <member type> <data type> <operational rights>  <role Name, code, spec, universal code, details> <(level 1 name,Item name), (level 2 name,Item name), (level 3 name,Item name), (level 4 name,Item name), (level 5 name,Item name)> <layer #>"></textarea>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Cancel selected Team member invitation</button>
+                          <button class="btn product-btn" type="button">Duplicate selected Member invitation to create new</button>
+                        </div>
+                      </form>
+                      <hr class="red_hr"/>
+                      <p class="portfolio-tagline"><b><i>Common Invitation to join as TEAM MEMBER to my organisation</i></b></p>
+                      <form>
+                        <div class="mb-3">
+                          <label for="linkData" class="form-label">Link to Data</label>
+                          <textarea type="text" class="form-control bg-white" id="linkData" rows="3" placeholder="Paste link to database to connect"></textarea>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Import Team members</button>
+                        </div>
+                        <div class="mb-3">
+                          <label for="InvitationLink" class="form-label">Common invitation link</label>
+                          <textarea type="text" class="form-control bg-white" id="InvitationLink" rows="3" placeholder="Paste invitation link"></textarea>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Save common invitation link & create QR code</button>
+                        </div>
+                        <img src="./images/qrcode.webp" class="rounded img-thumbnail mx-auto d-block" alt="...">
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Download common invitation link QR code</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <!-- user content  -->
+                <div class="tab-pane fade" id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab" tabindex="0">
+                  <div class="tab-pane fade show active" id="pills-teamMember" role="tabpanel" aria-labelledby="pills-teamMember-tab" tabindex="0">
+                    <div class="container row">
+                      <!-- user first column  -->
+                      <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                        <!-- header container  -->
+                        <div class="row green-container mt-3">
+                          <p class="text-center text-uppercase">Users</p>
+                          <p class="text-center">Total active Users</p>
+                        </div>
+                
+                        <p class="portfolio-tagline"><b><i>Invite User to my organisation</i></b></p>
+                        <form>
+                          <div class="mb-3">
+                            <label for="userName" class="form-label">User Name<span class="red_asterisk">*</span></label>
+                            <input type="text" class="form-control" id="userName" placeholder="User name">
+                          </div>
+                          <div class="mb-3">
+                            <label for="userCode" class="form-label">User Code (Unique)<span class="red_asterisk">*</span></label>
+                            <input type="text" class="form-control" id="userCode" placeholder="User code">
+                          </div>
+                          <div class="mb-3">
+                            <label for="userSpec" class="form-label">User Specification</label>
+                            <input type="text" class="form-control" id="userSpec" placeholder="User Specification">
+                          </div>
+                          <div class="mb-3">
+                            <label for="userunicode" class="form-label">User Universal Code</label>
+                            <input type="text" class="form-control" id="userunicode" placeholder="User universal code">
+                          </div>
+                          <div class="mb-3">
+                            <label for="Userdetails" class="form-label">User Details</label>
+                            <textarea type="text" class="form-control" id="Userdetails" rows="3" placeholder="User details"></textarea>
+                          </div>
+                          <div class="d-grid gap-2 mb-3">
+                            <button class="btn product-btn" type="button">Create User Invitation Link</button>
+                          </div>
+                        </form>
+                        <div class="row light-green-container mt-3">
+                          <p class="text-center">User Invitation Link</p>
+                        </div>
+                        <form>
+                          <div class="d-grid gap-2 mb-3">
+                            <button class="btn product-btn" type="button">Copy Invitation Link</button>
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email of invitee">
+                          </div>
+                          <div class="d-grid gap-2 mb-3">
+                            <button class="btn product-btn" type="button">Send Invitation email to selected user</button>
+                          </div>
+                        </form>
+                      </div>
+                      <!-- user second column  -->
+                      <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col bg-white">
+                           
+                        <p class="portfolio-tagline"><b><i>Search User in my organisation</i></b></p>
+                        <form>
+                          <div class="mb-3">
+                            <label for="assigneduser" class="form-label">User not having Portfolio</label>
+                            <select class="form-select" id="assigneduser"  multiple aria-label="multiple select example">
+                              <option selected>User 01</option>
+                              <option value="1">User 02</option>
+                              <option value="2">User 03</option>
+                              <option value="3">User 04</option>
+                              <option></option>
+                              <option></option>
+                              <option></option>
+                              <option></option>
+                              <option></option>
+                            </select>
+                          </div>
+                          <div class="mb-3">
+                            <label for="user" class="form-label">User with assigned Portfolio</label>
+                            <select class="form-select" id="user"  multiple aria-label="multiple select example">
+                              <option selected>User 01</option>
+                              <option value="1">User 02</option>
+                              <option value="2">User 03</option>
+                              <option value="3">User 04</option>
+                              <option></option>
+                              <option></option>
+                              <option></option>
+                              <option></option>
+                              <option></option>
+                            </select>
+                          </div>
+                         
+                          <div class="mb-3">
+                            <label for="searchTeam" class="form-label">Search User</label>
+                            <input type="text" class="form-control" id="searchTeam" placeholder="Name">
+                          </div>
+                         <div class="mb-3">
+                            <label for="teamMemeberDetails" class="form-label">Details of selected User</label>
+                            <textarea type="text" class="form-control" id="teamMemeberDetails" rows="3" placeholder="<portfolio name, code, spec, universal code, details> <member name, code, spec, universal code, details> <member type> <data type> <operational rights>  <role Name, code, spec, universal code, details> <(level 1 name,Item name), (level 2 name,Item name), (level 3 name,Item name), (level 4 name,Item name), (level 5 name,Item name)> <layer #>"></textarea>
+                          </div>
+                          <div class="d-grid gap-2 mb-3">
+                            <button class="btn product-btn" type="button">Remove Selected User</button>
+                          </div>
+                        </form>
+                      </div>
+                      <!-- users third column  -->
+                      <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                       <form>
+                          <div class="mb-3 mt-5">
+                            <label for="Invitedmember" class="form-label">Invited User</label>
+                            <select class="form-select" id="Invitedmember" multiple aria-label="multiple select example">
+                              <option selected>User 01</option>
+                              <option value="1">User 02</option>
+                              <option value="2">User 03</option>
+                              <option value="3">User 04</option>
+                              <option value="5">User 05</option>
+                              <option></option>
+                              <option></option>
+                              <option></option>
+                              <option></option>
+                              <option></option>
+                            </select>
+                          </div>
+                          <div class="mb-3">
+                            <label for="SearchInvitedMember" class="form-label">Search Invited User</label>
+                            <input type="text" class="form-control" id="SearchInvitedMember" placeholder="Name">
+                          </div>
+                          <div class="mb-3">
+                            <label for="InvitedMembersDetails" class="form-label">Details of Invited User</label>
+                            <textarea type="text" class="form-control" id="InvitedMembersDetails" rows="3" placeholder="<portfolio name, code, spec, universal code, details> <member name, code, spec, universal code, details> <member type> <data type> <operational rights>  <role Name, code, spec, universal code, details> <(level 1 name,Item name), (level 2 name,Item name), (level 3 name,Item name), (level 4 name,Item name), (level 5 name,Item name)> <layer #>"></textarea>
+                          </div>
+                          <div class="d-grid gap-2 mb-3">
+                            <button class="btn product-btn" type="button">Cancel selected User invitation</button>
+                            <button class="btn product-btn" type="button">Duplicate selected User invitation to create new</button>
+                          </div>
+                        </form>
+                        <hr class="red_hr"/>
+                        <p class="portfolio-tagline"><b><i>Common Invitation to join as USER to my organisation</i></b></p>
+                        <form>
+                          <div class="mb-3">
+                            <label for="linkData" class="form-label">Link to Data</label>
+                            <textarea type="text" class="form-control bg-white" id="linkData" rows="3" placeholder="Paste link to database to connect"></textarea>
+                          </div>
+                          <div class="d-grid gap-2 mb-3">
+                            <button class="btn product-btn" type="button">Import Users</button>
+                          </div>
+                          <div class="mb-3">
+                            <label for="InvitationLink" class="form-label">Common invitation link</label>
+                            <textarea type="text" class="form-control bg-white" id="InvitationLink" rows="3" placeholder="Paste invitation link"></textarea>
+                          </div>
+                          <div class="d-grid gap-2 mb-3">
+                            <button class="btn product-btn" type="button">Save common invitation link & create QR code</button>
+                          </div>
+                          <img src="./images/qrcode.webp" class="rounded img-thumbnail mx-auto d-block" alt="...">
+                          <div class="d-grid gap-2 mb-3">
+                            <button class="btn product-btn" type="button">Download common invitation link QR code</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- public content  -->
+                <div class="tab-pane fade" id="pills-public" role="tabpanel" aria-labelledby="pills-public-tab" tabindex="0">
+                  <div class="container row">
+                    <!-- Public first column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+              
+                      <p class="portfolio-tagline"><b><i>Invite Public to my organisation</i></b></p>
+                      <form>
+                        <div class="mb-3">
+                          <label for="publicLinkNo" class="form-label">Number of Public Links needed now</label>
+                          <input type="number" class="form-control" id="publicLinkNo" placeholder="Number">
+                        </div>
+                        <div class="mb-3">
+                          <label for="publicLinkNo" class="form-label">Create automatically if less than</label>
+                          <select class="form-select" aria-label="Default select example">
+                            <option selected>5</option>
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="500">500</option>
+                            <option value="1000">1000</option>
+
+                          </select>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Create Public Invitation Link</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- Public second column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col bg-white">
+                         
+                      <p class="portfolio-tagline"><b><i>Search Public in my organisation</i></b></p>
+                      <form>
+                        <div class="mb-3">
+                          <label for="unusedPublicLink" class="form-label">Unused Public Links not having Portfolio</label>
+                          <select class="form-select" id="unusedPublicLink" aria-label="Default select example">
+                            <option selected>Public 01</option>
+                            <option value="P1">Public 02</option>
+                            <option value="P3">Public 03</option>
+                            <option value="P4">Public 04</option>
+                            <option value="P5">Public 05</option>
+                            <option value="P6">Public 06</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="unusedPublicLinkPort" class="form-label">Unused Public Links with assigned Portfolio</label>
+                          <select class="form-select" id="unusedPublicLinkPort" aria-label="Default select example">
+                            <option selected>Public 01</option>
+                            <option value="P1">Public 02</option>
+                            <option value="P3">Public 03</option>
+                            <option value="P4">Public 04</option>
+                            <option value="P5">Public 05</option>
+                          </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                          <label for="usedPublicLink" class="form-label">Used Public Links</label>
+                          <select class="form-select" id="usedPublicLink" aria-label="Default select example">
+                            <option selected>Public 01</option>
+                            <option value="P1">Public 02</option>
+                          </select>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Hide used Public Links</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- Public third column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                      <div class="row green-container mt-3">
+                        <p class="text-center text-uppercase">Public</p>
+                        <p class="text-center">Total public links used</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- roles tab content  -->
+            <div id="Roles" class="tabcontent">
+              <div class="row">
+                <!-- first roles column  -->
+                <div class="col-sm-12 col-md-6 col-lg-6 portfolio_first_col">
+                  <!-- header container  -->
+                  <div class="row green-container mt-3">
+                    <p class="text-center text-uppercase">Role</p>
+                    <p class="text-center">Total enabled roles</p>
+                  </div>
+
+                  <p class="portfolio-tagline"><b><i>Create Roles – Define Roles in my organisation</i></b></p>
+                  <form>
+                    <div class="mb-3">
+                      <label for="selectItem1" class="form-label">Select Item in Level 1<span class="red_asterisk">*</span></label>
+                      <select class="form-select" id="selectItem1" aria-label="Default select example">
+                        <option value="1" selected>Item 1</option>
+                        <option value="2">Item 2</option>
+                        <option value="3">Item 3</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="selectItem2" class="form-label">Select Item in Level 2<span class="red_asterisk">*</span></label>
+                      <select class="form-select" id="selectItem2" aria-label="Default select example">
+                        <option value="1" selected>Item 1</option>
+                        <option value="2">Item 2</option>
+                        <option value="3">Item 3</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="selectItem3" class="form-label">Select Item in Level 3<span class="red_asterisk">*</span></label>
+                      <select class="form-select" id="selectItem3" aria-label="Default select example">
+                        <option value="1" selected>Item 1</option>
+                        <option value="2">Item 2</option>
+                        <option value="3">Item 3</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="selectItem4" class="form-label">Select Item in Level 4<span class="red_asterisk">*</span></label>
+                      <select class="form-select" id="selectItem4" aria-label="Default select example">
+                        <option value="1" selected>Item 1</option>
+                        <option value="2">Item 2</option>
+                        <option value="3">Item 3</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="selectItem5" class="form-label">Select Item in Level 5<span class="red_asterisk">*</span></label>
+                      <select class="form-select" id="selectItem5" aria-label="Default select example">
+                        <option value="1" selected>Item 1</option>
+                        <option value="2">Item 2</option>
+                        <option value="3">Item 3</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="selectSecurityLayer" class="form-label">Select Security Layer<span class="red_asterisk">*</span></label>
+                      <select class="form-select" id="selectSecurityLayer" aria-label="Default select example">
+                        <option value="1" selected>Layer 01</option>
+                        <option value="2">Layer 02</option>
+                        <option value="3">Layer 03</option>        
+                        <option value="3">Layer 04</option>        
+                        <option value="3">Layer 05</option>        
+
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="roleName" class="form-label">Role Name<span class="red_asterisk">*</span></label>
+                      <input type="text" class="form-control" id="roleName" placeholder="Role name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="roleCode" class="form-label">Role Code (Unique)<span class="red_asterisk">*</span></label>
+                      <input type="text" class="form-control" id="roleCode" placeholder="Role code">
+                    </div>
+                    <div class="mb-3">
+                      <label for="RoleSpec" class="form-label">Role Specifications</label>
+                      <input type="text" class="form-control" id="RoleSpec" placeholder="Role Specifications">
+                    </div>
+                    <div class="mb-3">
+                      <label for="Roleunicode" class="form-label">Role Universal Code</label>
+                      <input type="text" class="form-control" id="Roleunicode" placeholder="Role universal code">
+                    </div>
+                    <div class="mb-3">
+                      <label for="roledetails" class="form-label">Role Details</label>
+                      <textarea type="text" class="form-control" id="roledetails" rows="3" placeholder="Role details"></textarea>
+                    </div>
+                    <div class="d-grid gap-2 mb-3">
+                      <button class="btn product-btn" type="button">Create Role</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- second roles column  -->
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <p class="portfolio-tagline2"><b><i>Roles created in my organisation</i></b></p>
+                  <form>
+                    <div class="mb-3">
+                      <label for="level1Item" class="form-label">Level 1</label>
+                      <select class="form-select" id="level1Item" multiple aria-label="multiple select example">
+                        <option selected>Item 1</option>
+                        <option value="1">Item 2</option>
+                        <option value="2">Item 3</option>
+                        <option value="3">Item 4</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="level2Item" class="form-label">Level 2</label>
+                      <select class="form-select" id="level2Item" multiple aria-label="multiple select example">
+                        <option selected>Item 1</option>
+                        <option value="1">Item 2</option>
+                        <option value="2">Item 3</option>
+                        <option value="3">Item 4</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="level3Item" class="form-label">Level 3</label>
+                      <select class="form-select" id="level3Item" multiple aria-label="multiple select example">
+                        <option selected>Item 1</option>
+                        <option value="1">Item 2</option>
+                        <option value="2">Item 3</option>
+                        <option value="3">Item 4</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="level4Item" class="form-label">Level 4</label>
+                      <select class="form-select" id="level4Item" multiple aria-label="multiple select example">
+                        <option selected>Item 1</option>
+                        <option value="1">Item 2</option>
+                        <option value="2">Item 3</option>
+                        <option value="3">Item 4</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="level5Item" class="form-label">Level 5</label>
+                      <select class="form-select" id="level5Item" multiple aria-label="multiple select example">
+                        <option selected>Item 1</option>
+                        <option value="1">Item 2</option>
+                        <option value="2">Item 3</option>
+                        <option value="3">Item 4</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="securityLayerItem" class="form-label">Security Layer</label>
+                      <select class="form-select" id="securityLayerItem" multiple aria-label="multiple select example">
+                        <option selected>Layer 1</option>
+                        <option value="1">Layer 2</option>
+                        <option value="2">Layer 3</option>
+                        <option value="3">Layer 4</option>
+                        <option value="5">Layer 5</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="enabledRoles" class="form-label">Enabled Roles</label>
+                      <select class="form-select" id="enabledRoles" aria-label="Default select example">
+                        <option value="1" selected>Role 1</option>
+                        <option value="2">Role 2</option>
+                        <option value="3">Role 3</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="disabledRoles" class="form-label">Disabled Roles</label>
+                      <select class="form-select" id="disabledRoles" aria-label="Default select example">
+                        <option value="1" selected>Role 1</option>
+                        <option value="2">Role 2</option>
+                        <option value="3">Role 3</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="detailsOfRoles" class="form-label">Details of selected Roles</label>
+                      <textarea type="text" class="form-control" id="detailsOfRoles" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="enabled/disableRoles" class="form-label">Enable / Disable Selected Roles</label>
+                      <select class="form-select" id="enabled/disableRoles" aria-label="Default select example">
+                        <option value="enable" selected>Enable</option>
+                        <option value="disable" >Disable</option>
+                       </select>
+                    </div>
+                    <div class="d-grid gap-2 mb-3">
+                      <button class="btn product-btn" type="button">Enable / Disable Selected Role</button>
+                      <button class="btn product-btn" type="button">Duplicate selected Role to create new</button>
+                      <button class="btn product-btn" type="button">Refresh Search</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- levels tab content  -->
+            <div id="Levels" class="tabcontent">
+              <ul class="nav nav-pills mb-3 row" id="pills-tab" role="tablist">
+                <li class="nav-item levels_nav_item col-lg-2 col-md-2 col-sm-12" role="presentation">
+                  <button class="nav-link active memebrsBtn" id="pills-level1-tab" data-bs-toggle="pill" data-bs-target="#pills-level1" type="button" role="tab" aria-controls="pills-level1" aria-selected="true"><i class="bi bi-arrow-90deg-down me-3"></i>Level 1</button>
+                </li>
+                <li class="nav-item levels_nav_item col-lg-2 col-md-2 col-sm-12" role="presentation">
+                  <button class="nav-link memebrsBtn" id="pills-level2-tab" data-bs-toggle="pill" data-bs-target="#pills-level2" type="button" role="tab" aria-controls="pills-level2" aria-selected="false"><i class="bi bi-arrow-90deg-down me-3"></i>Level 2</button>
+                </li>
+                <li class="nav-item levels_nav_item col-lg-2 col-md-2 col-sm-12" role="presentation">
+                  <button class="nav-link memebrsBtn" id="pills-level3-tab" data-bs-toggle="pill" data-bs-target="#pills-level3" type="button" role="tab" aria-controls="pills-level3" aria-selected="false"><i class="bi bi-arrow-90deg-down me-3"></i>Level 3</button>
+                </li>
+                <li class="nav-item levels_nav_item col-lg-2 col-md-2 col-sm-12" role="presentation">
+                  <button class="nav-link memebrsBtn" id="pills-level4-tab" data-bs-toggle="pill" data-bs-target="#pills-level4" type="button" role="tab" aria-controls="pills-level4" aria-selected="false"><i class="bi bi-arrow-90deg-down me-3"></i>Level 4</button>
+                </li>
+                <li class="nav-item levels_nav_item col-lg-2 col-md-2 col-sm-12" role="presentation">
+                  <button class="nav-link memebrsBtn" id="pills-level5-tab" data-bs-toggle="pill" data-bs-target="#pills-level5" type="button" role="tab" aria-controls="pills-level5" aria-selected="false"><i class="bi bi-arrow-90deg-down me-3"></i>Level 5</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <!-- level1 content  -->
+                <div class="tab-pane fade show active" id="pills-level1" role="tabpanel" aria-labelledby="pills-level1-tab" tabindex="0">
+                  <div class="container row">
+                    <!-- level1 first column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                      <div class="row green-container mt-3">
+                        <p class="text-center">Level 1 – &ltName&gt,Total Items – &lttotal enabled items in level 1&gt</p>
+                      </div>
+                      <form>
+                        <div class="mb-3">
+                          <label for="level1name" class="form-label">Name of Level 1</label>
+                          <input type="text" class="form-control" id="level1name" placeholder="Name">
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Save Name</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- level1 second column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col bg-white">
+                         
+                      <p class="portfolio-tagline"><b><i>Create Level 1 Items</i></b></p>
+                      <form>
+                        <div class="mb-3">
+                          <label for="ItemName" class="form-label">Item Name<span class="red_asterisk">*</span></label>
+                          <input type="text" class="form-control" id="ItemName" placeholder="Item name">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemCode" class="form-label">Item Code (Unique)<span class="red_asterisk">*</span></label>
+                          <input type="text" class="form-control" id="itemCode" placeholder="Item code">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemSpec" class="form-label">Item Specifications</label>
+                          <input type="text" class="form-control" id="itemSpec" placeholder="Item Specifications">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemunicode" class="form-label">Item Universal Code</label>
+                          <input type="text" class="form-control" id="itemunicode" placeholder="Item universal code">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemdetails" class="form-label">Item Details</label>
+                          <textarea type="text" class="form-control" id="itemdetails" rows="3" placeholder="Item details"></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseBarCode" class="form-label">Barcode</label>
+                          <input type="file" id="chooseBarCode">
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseImage1" class="form-label">Image 1</label>
+                          <input type="file" id="chooseImage1">
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseImage2" class="form-label">Image 2</label>
+                          <input type="file" id="chooseImage2">
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Create Item</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- level1 third column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                      <form>
+                        <p class="portfolio-tagline"><b><i>Items created in Level 1</i></b></p>
+
+                        <div class="mb-3">
+                          <label for="enabledItems" class="form-label">Enabled Items</label>
+                          <select class="form-select" id="enabledItems" aria-label="Default select example">
+                            <option value="1" selected>Item 01</option>
+                            <option value="2">Item 02</option>
+                            <option value="3">Item 03</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="disabledItems" class="form-label">Disabled Items</label>
+                          <select class="form-select" id="disabledItems" aria-label="Default select example">
+                            <option value="1" selected>Item 01</option>
+                            <option value="2">Item 02</option>
+                            <option value="3">Item 03</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="detailsOfSelectedItem" class="form-label">Details Of Selected Items</label>
+                          <textarea type="text" rows="4" class="form-control" id="detailsOfSelectedItem" placeholder=""></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="enable/disabledSelectItems" class="form-label">Enable / Disabled selected Items</label>
+                          <select class="form-select" id="enable/disabledSelectItems" aria-label="Default select example">
+                            <option value="enable" selected>Enable</option>
+                            <option value="disable">Disable</option>
+                          </select>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Enable / Disable selected Item</button>
+                          <button class="btn product-btn mt-5" type="button">Duplicate selected Item to create new</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <!-- level2 content  -->
+                <div class="tab-pane fade" id="pills-level2" role="tabpanel" aria-labelledby="pills-level2-tab" tabindex="0">
+                  <div class="container row">
+                    <!-- level2 first column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                      <div class="row green-container mt-3">
+                        <p class="text-center">Level 2 – &ltName&gt,Total Items – &lttotal enabled items in level 2&gt</p>
+                      </div>
+                      <form>
+                        <div class="mb-3">
+                          <label for="level2name" class="form-label">Name of Level 2</label>
+                          <input type="text" class="form-control" id="level2name" placeholder="Name">
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Save Name</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- level2 second column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col bg-white">
+                         
+                      <p class="portfolio-tagline"><b><i>Create Level 2 Items</i></b></p>
+                      <form>
+                        <div class="mb-3">
+                          <label for="ItemName" class="form-label">Item Name<span class="red_asterisk">*</span></label>
+                          <input type="text" class="form-control" id="ItemName" placeholder="Item name">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemCode" class="form-label">Item Code (Unique)<span class="red_asterisk">*</span></label>
+                          <input type="text" class="form-control" id="itemCode" placeholder="Item code">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemSpec" class="form-label">Item Specifications</label>
+                          <input type="text" class="form-control" id="itemSpec" placeholder="Item Specifications">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemunicode" class="form-label">Item Universal Code</label>
+                          <input type="text" class="form-control" id="itemunicode" placeholder="Item universal code">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemdetails" class="form-label">Item Details</label>
+                          <textarea type="text" class="form-control" id="itemdetails" rows="3" placeholder="Item details"></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseBarCode" class="form-label">Barcode</label>
+                          <input type="file" id="chooseBarCode">
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseImage1" class="form-label">Image 1</label>
+                          <input type="file" id="chooseImage1">
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseImage2" class="form-label">Image 2</label>
+                          <input type="file" id="chooseImage2">
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Create Item</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- level2 third column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                      <form>
+                        <p class="portfolio-tagline"><b><i>Items created in Level 2</i></b></p>
+
+                        <div class="mb-3">
+                          <label for="enabledItems" class="form-label">Enabled Items</label>
+                          <select class="form-select" id="enabledItems" aria-label="Default select example">
+                            <option value="1" selected>Item 01</option>
+                            <option value="2">Item 02</option>
+                            <option value="3">Item 03</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="disabledItems" class="form-label">Disabled Items</label>
+                          <select class="form-select" id="disabledItems" aria-label="Default select example">
+                            <option value="1" selected>Item 01</option>
+                            <option value="2">Item 02</option>
+                            <option value="3">Item 03</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="detailsOfSelectedItem" class="form-label">Details Of Selected Items</label>
+                          <textarea type="text" rows="4" class="form-control" id="detailsOfSelectedItem" placeholder=""></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="enable/disabledSelectItems" class="form-label">Enable / Disabled selected Items</label>
+                          <select class="form-select" id="enable/disabledSelectItems" aria-label="Default select example">
+                            <option value="enable" selected>Enable</option>
+                            <option value="disable">Disable</option>
+                          </select>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Enable / Disable selected Item</button>
+                          <button class="btn product-btn mt-5" type="button">Duplicate selected Item to create new</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <!-- level3 content  -->
+                <div class="tab-pane fade" id="pills-level3" role="tabpanel" aria-labelledby="pills-level3-tab" tabindex="0">
+                  <div class="container row">
+                    <!-- level3 first column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                      <div class="row green-container mt-3">
+                        <p class="text-center">Level 3 – &ltName&gt,Total Items – &lttotal enabled items in level 3&gt</p>
+                      </div>
+                      <form>
+                        <div class="mb-3">
+                          <label for="level3name" class="form-label">Name of Level 3</label>
+                          <input type="text" class="form-control" id="level3name" placeholder="Name">
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Save Name</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- level3 second column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col bg-white">
+                         
+                      <p class="portfolio-tagline"><b><i>Create Level 3 Items</i></b></p>
+                      <form>
+                        <div class="mb-3">
+                          <label for="ItemName" class="form-label">Item Name<span class="red_asterisk">*</span></label>
+                          <input type="text" class="form-control" id="ItemName" placeholder="Item name">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemCode" class="form-label">Item Code (Unique)<span class="red_asterisk">*</span></label>
+                          <input type="text" class="form-control" id="itemCode" placeholder="Item code">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemSpec" class="form-label">Item Specifications</label>
+                          <input type="text" class="form-control" id="itemSpec" placeholder="Item Specifications">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemunicode" class="form-label">Item Universal Code</label>
+                          <input type="text" class="form-control" id="itemunicode" placeholder="Item universal code">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemdetails" class="form-label">Item Details</label>
+                          <textarea type="text" class="form-control" id="itemdetails" rows="3" placeholder="Item details"></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseBarCode" class="form-label">Barcode</label>
+                          <input type="file" id="chooseBarCode">
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseImage1" class="form-label">Image 1</label>
+                          <input type="file" id="chooseImage1">
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseImage2" class="form-label">Image 2</label>
+                          <input type="file" id="chooseImage2">
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Create Item</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- level3 third column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                      <form>
+                        <p class="portfolio-tagline"><b><i>Items created in Level 3</i></b></p>
+
+                        <div class="mb-3">
+                          <label for="enabledItems" class="form-label">Enabled Items</label>
+                          <select class="form-select" id="enabledItems" aria-label="Default select example">
+                            <option value="1" selected>Item 01</option>
+                            <option value="2">Item 02</option>
+                            <option value="3">Item 03</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="disabledItems" class="form-label">Disabled Items</label>
+                          <select class="form-select" id="disabledItems" aria-label="Default select example">
+                            <option value="1" selected>Item 01</option>
+                            <option value="2">Item 02</option>
+                            <option value="3">Item 03</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="detailsOfSelectedItem" class="form-label">Details Of Selected Items</label>
+                          <textarea type="text" rows="4" class="form-control" id="detailsOfSelectedItem" placeholder=""></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="enable/disabledSelectItems" class="form-label">Enable / Disabled selected Items</label>
+                          <select class="form-select" id="enable/disabledSelectItems" aria-label="Default select example">
+                            <option value="enable" selected>Enable</option>
+                            <option value="disable">Disable</option>
+                          </select>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Enable / Disable selected Item</button>
+                          <button class="btn product-btn mt-5" type="button">Duplicate selected Item to create new</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- level4 content  -->
+                <div class="tab-pane fade" id="pills-level4" role="tabpanel" aria-labelledby="pills-level4-tab" tabindex="0">
+                  <div class="container row">
+                    <!-- level4 first column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                      <div class="row green-container mt-3">
+                        <p class="text-center">Level 4 – &ltName&gt,Total Items – &lttotal enabled items in level 4&gt</p>
+                      </div>
+                      <form>
+                        <div class="mb-3">
+                          <label for="level4name" class="form-label">Name of Level 4</label>
+                          <input type="text" class="form-control" id="level4name" placeholder="Name">
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Save Name</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- level4 second column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col bg-white">
+                         
+                      <p class="portfolio-tagline"><b><i>Create Level 4 Items</i></b></p>
+                      <form>
+                        <div class="mb-3">
+                          <label for="ItemName" class="form-label">Item Name<span class="red_asterisk">*</span></label>
+                          <input type="text" class="form-control" id="ItemName" placeholder="Item name">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemCode" class="form-label">Item Code (Unique)<span class="red_asterisk">*</span></label>
+                          <input type="text" class="form-control" id="itemCode" placeholder="Item code">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemSpec" class="form-label">Item Specifications</label>
+                          <input type="text" class="form-control" id="itemSpec" placeholder="Item Specifications">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemunicode" class="form-label">Item Universal Code</label>
+                          <input type="text" class="form-control" id="itemunicode" placeholder="Item universal code">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemdetails" class="form-label">Item Details</label>
+                          <textarea type="text" class="form-control" id="itemdetails" rows="3" placeholder="Item details"></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseBarCode" class="form-label">Barcode</label>
+                          <input type="file" id="chooseBarCode">
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseImage1" class="form-label">Image 1</label>
+                          <input type="file" id="chooseImage1">
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseImage2" class="form-label">Image 2</label>
+                          <input type="file" id="chooseImage2">
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Create Item</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- level4 third column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                      <form>
+                        <p class="portfolio-tagline"><b><i>Items created in Level 4</i></b></p>
+
+                        <div class="mb-3">
+                          <label for="enabledItems" class="form-label">Enabled Items</label>
+                          <select class="form-select" id="enabledItems" aria-label="Default select example">
+                            <option value="1" selected>Item 01</option>
+                            <option value="2">Item 02</option>
+                            <option value="3">Item 03</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="disabledItems" class="form-label">Disabled Items</label>
+                          <select class="form-select" id="disabledItems" aria-label="Default select example">
+                            <option value="1" selected>Item 01</option>
+                            <option value="2">Item 02</option>
+                            <option value="3">Item 03</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="detailsOfSelectedItem" class="form-label">Details Of Selected Items</label>
+                          <textarea type="text" rows="4" class="form-control" id="detailsOfSelectedItem" placeholder=""></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="enable/disabledSelectItems" class="form-label">Enable / Disabled selected Items</label>
+                          <select class="form-select" id="enable/disabledSelectItems" aria-label="Default select example">
+                            <option value="enable" selected>Enable</option>
+                            <option value="disable">Disable</option>
+                          </select>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Enable / Disable selected Item</button>
+                          <button class="btn product-btn mt-5" type="button">Duplicate selected Item to create new</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <!-- level5 content  -->
+                <div class="tab-pane fade" id="pills-level5" role="tabpanel" aria-labelledby="pills-level5-tab" tabindex="0">
+                  <div class="container row">
+                    <!-- level5 first column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                      <div class="row green-container mt-3">
+                        <p class="text-center">Level 5 – &ltName&gt,Total Items – &lttotal enabled items in level 5&gt</p>
+                      </div>
+                      <form>
+                        <div class="mb-3">
+                          <label for="level5name" class="form-label">Name of Level 5</label>
+                          <input type="text" class="form-control" id="level5name" placeholder="Name">
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Save Name</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- level5 second column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col bg-white">
+                         
+                      <p class="portfolio-tagline"><b><i>Create Level 5 Items</i></b></p>
+                      <form>
+                        <div class="mb-3">
+                          <label for="ItemName" class="form-label">Item Name<span class="red_asterisk">*</span></label>
+                          <input type="text" class="form-control" id="ItemName" placeholder="Item name">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemCode" class="form-label">Item Code (Unique)<span class="red_asterisk">*</span></label>
+                          <input type="text" class="form-control" id="itemCode" placeholder="Item code">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemSpec" class="form-label">Item Specifications</label>
+                          <input type="text" class="form-control" id="itemSpec" placeholder="Item Specifications">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemunicode" class="form-label">Item Universal Code</label>
+                          <input type="text" class="form-control" id="itemunicode" placeholder="Item universal code">
+                        </div>
+                        <div class="mb-3">
+                          <label for="itemdetails" class="form-label">Item Details</label>
+                          <textarea type="text" class="form-control" id="itemdetails" rows="3" placeholder="Item details"></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseBarCode" class="form-label">Barcode</label>
+                          <input type="file" id="chooseBarCode">
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseImage1" class="form-label">Image 1</label>
+                          <input type="file" id="chooseImage1">
+                        </div>
+                        <div class="mb-3">
+                          <label for="chooseImage2" class="form-label">Image 2</label>
+                          <input type="file" id="chooseImage2">
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Create Item</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- level5 third column  -->
+                    <div class="col-sm-12 col-md-4 col-lg-4 portfolio_first_col">
+                      <form>
+                        <p class="portfolio-tagline"><b><i>Items created in Level 5</i></b></p>
+
+                        <div class="mb-3">
+                          <label for="enabledItems" class="form-label">Enabled Items</label>
+                          <select class="form-select" id="enabledItems" aria-label="Default select example">
+                            <option value="1" selected>Item 01</option>
+                            <option value="2">Item 02</option>
+                            <option value="3">Item 03</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="disabledItems" class="form-label">Disabled Items</label>
+                          <select class="form-select" id="disabledItems" aria-label="Default select example">
+                            <option value="1" selected>Item 01</option>
+                            <option value="2">Item 02</option>
+                            <option value="3">Item 03</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="detailsOfSelectedItem" class="form-label">Details Of Selected Items</label>
+                          <textarea type="text" rows="4" class="form-control" id="detailsOfSelectedItem" placeholder=""></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="enable/disabledSelectItems" class="form-label">Enable / Disabled selected Items</label>
+                          <select class="form-select" id="enable/disabledSelectItems" aria-label="Default select example">
+                            <option value="enable" selected>Enable</option>
+                            <option value="disable">Disable</option>
+                          </select>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                          <button class="btn product-btn" type="button">Enable / Disable selected Item</button>
+                          <button class="btn product-btn mt-5" type="button">Duplicate selected Item to create new</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- levels tab content  -->
+            <div id="Layers" class="tabcontent">
+              <div class="row">
+                <!-- first column  -->
+                <div class="col-sm-12 col-md-6 col-lg-6 portfolio_first_col">
+                  <!-- header container  -->
+                  <div class="row green-container mt-3">
+                    <p class="text-center">Security Layers created in my organisation</p>
+                  </div>
+
+                  <p class="portfolio-tagline"><b><i>Create Layers – Define Security Layers in my organisation</i></b></p>
+                  <p class="portfolio-tagline2 mt-3"><b><i>Set Layers – 1 (High), 2, 3, 4, 5, 6 (Low)</i></b></p>
+                  <!-- device form  -->
+                  <p class="portfolio-tagline mt-2"><b><i>Devices</i></b></p>
+
+                  <form>
+                    <div class="mb-3">
+                      <label for="lap/deskLayer" class="form-label">Laptop/Desk top</label>
+                      <select class="form-select" id="lap/deskLayer" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="mobilePhoneLayer" class="form-label">Mobile Phone</label>
+                      <select class="form-select" id="mobilePhoneLayer" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="tabletIpad" class="form-label">Tablet / Ipad</label>
+                      <select class="form-select" id="tabletIpad" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="othersDevices" class="form-label">Others not listed above</label>
+                      <select class="form-select" id="othersDevices" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2 mb-3">
+                      <button class="btn product-btn" type="button">Save Device Settings</button>
+                    </div>
+                  </form>
+
+                  <!-- operating system form  -->
+                  <p class="portfolio-tagline mt-2"><b><i>Operating Systems</i></b></p>
+
+                  <form>
+                    <div class="mb-3">
+                      <label for="windows" class="form-label">Windows</label>
+                      <select class="form-select" id="windows" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="macOS" class="form-label">Mac OS</label>
+                      <select class="form-select" id="macOS" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="linux" class="form-label">Linux</label>
+                      <select class="form-select" id="linux" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="android" class="form-label">Android</label>
+                      <select class="form-select" id="android" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="ios" class="form-label">IOS</label>
+                      <select class="form-select" id="ios" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="othersOS" class="form-label">Others not listed above</label>
+                      <select class="form-select" id="othersOS" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2 mb-3">
+                      <button class="btn product-btn" type="button">Save OS Settings</button>
+                    </div>
+                  </form>
+
+                  <!--  Browser form  -->
+                  <p class="portfolio-tagline mt-2"><b><i>Browser</i></b></p>
+
+                  <form>
+                    <div class="mb-3">
+                      <label for="Chrome" class="form-label">Chrome</label>
+                      <select class="form-select" id="Chrome" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="Safari" class="form-label">Safari</label>
+                      <select class="form-select" id="Safari" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="Bing" class="form-label">Bing</label>
+                      <select class="form-select" id="Bing" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="Firefox" class="form-label">Firefox</label>
+                      <select class="form-select" id="Firefox" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="edge" class="form-label">Edge</label>
+                      <select class="form-select" id="edge" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="opera" class="form-label">Opera</label>
+                      <select class="form-select" id="opera" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="othersBrowser" class="form-label">Others not listed above</label>
+                      <select class="form-select" id="othersBrowser" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2 mb-3">
+                      <button class="btn product-btn" type="button">Save Browser Settings</button>
+                    </div>
+                  </form>
+
+                  <!--  Internet connection type form  -->
+                  <p class="portfolio-tagline mt-2"><b><i>Internet Connection Type</i></b></p>
+
+                  <form>
+                    <div class="mb-3">
+                      <label for="mobileData" class="form-label">Mobile Data</label>
+                      <select class="form-select" id="mobileData" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="secureWifi" class="form-label">Office Wifi/Secured Wifi</label>
+                      <select class="form-select" id="secureWifi" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="publicWifi" class="form-label">Public Wifi</label>
+                      <select class="form-select" id="publicWifi" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="othersInternet" class="form-label">Others not listed above</label>
+                      <select class="form-select" id="othersInternet" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2 mb-3">
+                      <button class="btn product-btn" type="button">Save Internet Settings</button>
+                    </div>
+                  </form>
+
+                  <!--  login type form  -->
+                  <p class="portfolio-tagline mt-2"><b><i>Login Type</i></b></p>
+
+                  <form>
+                    <div class="mb-3">
+                      <label for="username&pass" class="form-label">User Name & Password</label>
+                      <select class="form-select" id="username&pass" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="faceId" class="form-label">Face ID</label>
+                      <select class="form-select" id="faceId" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="voiceId" class="form-label">Voice ID</label>
+                      <select class="form-select" id="voiceId" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="biometricID" class="form-label">Biometric ID</label>
+                      <select class="form-select" id="biometricID" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="videoId" class="form-label">Video ID</label>
+                      <select class="form-select" id="videoId aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="othersLogin" class="form-label">Others not listed above</label>
+                      <select class="form-select" id="othersLogin" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2 mb-3">
+                      <button class="btn product-btn" type="button">Save Login type Settings</button>
+                    </div>
+                  </form>
+
+                  <!--  Change Password form  -->
+                  <p class="portfolio-tagline mt-2"><b><i>Change Password</i></b></p>
+
+                  <form>
+                    <div class="mb-3">
+                      <label for="everyWeek" class="form-label">Change password at least once every Week</label>
+                      <select class="form-select" id="everyWeek" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="everyMonth" class="form-label">Change password at least once every Month</label>
+                      <select class="form-select" id="everyMonth" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="3months" class="form-label">Change password at least once every 3 Months</label>
+                      <select class="form-select" id="3months" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="6months" class="form-label">Change password at least once every 6 Months</label>
+                      <select class="form-select" id="6months" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="everyYear" class="form-label">Change password at least once every Year</label>
+                      <select class="form-select" id="everyYear" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="othersChangePass" class="form-label">Others not listed above</label>
+                      <select class="form-select" id="othersChangePass" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2 mb-3">
+                      <button class="btn product-btn" type="button">Save Password Settings</button>
+                    </div>
+                  </form>
+
+                  <!--  Password Strength form  -->
+                  <p class="portfolio-tagline mt-2"><b><i>Password Strength</i></b></p>
+
+                  <form>
+                    <div class="mb-3">
+                      <label for="8char" class="form-label">Minimum 8 characters</label>
+                      <select class="form-select" id="8char" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="10char" class="form-label">Minimum 10 characters</label>
+                      <select class="form-select" id="10char" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="12char" class="form-label">Minimum 12 characters</label>
+                      <select class="form-select" id="12char" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="16char" class="form-label">Minimum 16 characters</label>
+                      <select class="form-select" id="16char" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="othersPassStrenth" class="form-label">Others not listed above</label>
+                      <select class="form-select" id="othersPassStrenth" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2 mb-3">
+                      <button class="btn product-btn" type="button">Save Password Settings</button>
+                    </div>
+                  </form>
+
+                   <!--  ID Verification Status form  -->
+                   <p class="portfolio-tagline mt-2"><b><i>ID Verification Status</i></b></p>
+
+                   <form>
+                     <div class="mb-3">
+                       <label for="VerifiedID" class="form-label">Verified ID</label>
+                       <select class="form-select" id="VerifiedID" aria-label="Default select example">
+                         <option value="1" selected>Layer 1</option>
+                         <option value="2">Layer 2</option>
+                         <option value="3">Layer 3</option>
+                         <option value="4">Layer 4</option>        
+                         <option value="5">Layer 5</option>        
+                         <option value="6">Layer 6</option>        
+                       </select>
+                     </div>
+                     <div class="mb-3">
+                       <label for="idNotVerified" class="form-label">ID not Verified</label>
+                       <select class="form-select" id="idNotVerified" aria-label="Default select example">
+                         <option value="1" selected>Layer 1</option>
+                         <option value="2">Layer 2</option>
+                         <option value="3">Layer 3</option>
+                         <option value="4">Layer 4</option>        
+                         <option value="5">Layer 5</option>        
+                         <option value="6">Layer 6</option>        
+                       </select>
+                     </div>
+                     <div class="mb-3">
+                       <label for="PhoneVerified" class="form-label">Phone Number Verified</label>
+                       <select class="form-select" id="PhoneVerified" aria-label="Default select example">
+                         <option value="1" selected>Layer 1</option>
+                         <option value="2">Layer 2</option>
+                         <option value="3">Layer 3</option>
+                         <option value="4">Layer 4</option>        
+                         <option value="5">Layer 5</option>        
+                         <option value="6">Layer 6</option>        
+                       </select>
+                     </div>
+                     <div class="mb-3">
+                      <label for="PhonenotVerified" class="form-label">Phone Number not Verified</label>
+                      <select class="form-select" id="PhonenotVerified" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="emailVerified" class="form-label">Email Verified</label>
+                      <select class="form-select" id="emailVerified" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="emailNotVerified" class="form-label">Email Not Verified</label>
+                      <select class="form-select" id="emailNotVerified" aria-label="Default select example">
+                        <option value="1" selected>Layer 1</option>
+                        <option value="2">Layer 2</option>
+                        <option value="3">Layer 3</option>
+                        <option value="4">Layer 4</option>        
+                        <option value="5">Layer 5</option>        
+                        <option value="6">Layer 6</option>        
+                      </select>
+                    </div>
+                     <div class="mb-3">
+                       <label for="othersIDVerify" class="form-label">Others not listed above</label>
+                       <select class="form-select" id="othersIDVerify" aria-label="Default select example">
+                         <option value="1" selected>Layer 1</option>
+                         <option value="2">Layer 2</option>
+                         <option value="3">Layer 3</option>
+                         <option value="4">Layer 4</option>        
+                         <option value="5">Layer 5</option>        
+                         <option value="6">Layer 6</option>        
+                       </select>
+                     </div>
+                     
+                     <div class="d-grid gap-2 mb-3">
+                       <button class="btn product-btn" type="button">Save Verified ID Settings</button>
+                     </div>
+                   </form>
+                </div>
+                <!-- second portfolio column  -->
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <p class="portfolio-tagline2"><b><i>Search In Security Layers</i></b></p>
+                  <form>
+                    <div class="mb-3">
+                      <label for="securityLayer" class="form-label">Security Layer</label>
+                      <select class="form-select" id="securityLayer" multiple aria-label="multiple select example">
+                        <option selected>Layer 1</option>
+                        <option value="1">Layer 2</option>
+                        <option value="2">Layer 3</option>
+                        <option value="3">Layer 4</option>
+                        <option value="5">Layer 5</option>
+                        <option value="6">Layer 6</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="devicesLayer" class="form-label">Devices</label>
+                      <select class="form-select" id="devicesLayer" multiple aria-label="multiple select example">
+                        <option selected>Laptop/desktop</option>
+                        <option value="1">Mobile Phone</option>
+                        <option value="2">Tablet/Ipad</option>
+                        <option value="3">Others</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="OSLayer" class="form-label">Operating Systems</label>
+                      <select class="form-select" id="OSLayer" multiple aria-label="multiple select example">
+                        <option selected>Windows</option>
+                        <option value="1">Mac OS</option>
+                        <option value="2">Linux</option>
+                        <option value="3">Android</option>
+                        <option value="4">IOS</option>
+                        <option>Others</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="browserLayer" class="form-label">Browsers</label>
+                      <select class="form-select" id="browserLayer" multiple aria-label="multiple select example">
+                        <option selected>Chrome</option>
+                        <option>Safari</option>
+                        <option>Bing</option>
+                        <option>Firefox</option>
+                        <option>Edge</option>
+                        <option>Opera</option>
+                        <option>Others</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="InternetLayer" class="form-label">Internet Connection Type</label>
+                      <select class="form-select" id="InternetLayer" multiple aria-label="multiple select example">
+                        <option selected>Mobile Data</option>
+                        <option value="1">Secured Wifi</option>
+                        <option value="2">Public Wifi</option>
+                        <option value="3">Others</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="loginLayer" class="form-label">Login Type</label>
+                      <select class="form-select" id="loginLayer" multiple aria-label="multiple select example">
+                        <option selected>User Name & Password</option>
+                        <option value="1">Face ID</option>
+                        <option value="1">Voice ID</option>
+                        <option value="1">Biometric ID</option>
+                        <option value="1">Video ID</option>
+                        <option>Others</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="changePass" class="form-label">Change Password</label>
+                      <select class="form-select" id="changePass" multiple aria-label="multiple select example">
+                        <option selected>At least once in a Week</option>
+                        <option>At least once in a Month</option>
+                        <option>At least once in a 3 Months</option>
+                        <option>At least once in a 6 Months</option>
+                        <option>At least once in an Year</option>
+                        <option>Others</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="PassStrength" class="form-label">Password Strength</label>
+                      <select class="form-select" id="PassStrength" multiple aria-label="multiple select example">
+                        <option selected>8 Characters</option>
+                        <option value="1">10 Characters</option>
+                        <option value="1">12 Characters</option>
+                        <option value="1">16 Characters</option>
+                        <option>Others</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="idVerification" class="form-label">ID Verification Status</label>
+                      <select class="form-select" id="idVerification" multiple aria-label="multiple select example">
+                        <option selected>Verified ID</option>
+                        <option value="1">ID not cerified</option>
+                        <option value="1">Phone number verified</option>
+                        <option value="1">Phone number not verified</option>
+                        <option value="1">Email verified</option>
+                        <option value="1">Email not verified</option>
+                        <option>Others</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="graphicLocation" class="form-label">Graphic Location</label>
+                      <select class="form-select" id="graphicLocation multiple aria-label="multiple select example">
+                        <option value="india" selected>India</option>
+                        <option value="kenya">Kenya</option>
+                        <option value="nigeria">Nigeria</option>
+                        <option value="others">Others</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="languageLayer" class="form-label">Language</label>
+                      <select class="form-select" id="languageLayer multiple aria-label="multiple select example">
+                        <option selected value="others">others</option>
+                        <option value="chinese">Chinese</option>
+                        <option value="korean">Korean</option>
+                        <option value="others">Others</option>
+                      </select>
+                    </div>
+                    <div class="d-grid gap-2 mb-3">
+                      <button class="btn product-btn" type="button">Refresh Search</button>
+                    </div>
+                    <p class="portfolio-tagline2"><b><i>Set Layers – 1 (High), 2, 3, 4, 5, 6 (Low)</i></b></p>
+                    <p class="portfolio-tagline mt-2"><b><i>Geographic Location</i></b></p>
+  <!-- geographic location  -->
+<div class="top">
+    <ol id="setlocation" class="row orglayers clear "></ol>
+</div>
+
+<ul id="pagin">
+  <li>
+    <a
+      class="current page_li"
+      id="first_page_button"
+      href="#"
+      >1</a
+    >
+  </li>
+  <li><a class="page_li" href="#">2</a></li>
+  <li><a class="page_li" href="#">3</a></li>
+  <li><a class="page_li" href="#">4</a></li>
+  <li><a class="page_li" href="#">5</a></li>
+</ul>
+<div class="d-grid gap-2 mb-3">
+  <button class="btn product-btn" type="button">Save Geographic Settings</button>
+</div>
+<p class="portfolio-tagline mt-2"><b><i>Language</i></b></p>
+<ol>
+  <li><input type="checkbox">  English - Layer   <form><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="English - Layer" checked> 1</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="English - Layer"> 2</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="English - Layer"> 3</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="English - Layer"> 4</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="English - Layer"> 5</label><label class="radio-inline"style="margin-right:6px;" ><input type="radio" name="English - Layer"> 6</label></form></li>
+  <li><input type="checkbox">  Chinese - Layer   <form><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="chinese" checked> 1</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="chinese"> 2</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="chinese"> 3</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="chinese"> 4</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="chinese"> 5</label><label class="radio-inline"style="margin-right:6px;" ><input type="radio" name="chinese"> 6</label></form></li>
+  <li><input type="checkbox">  Korean - Layer  <form><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="korean" checked> 1</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="korean"> 2</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="korean"> 3</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="korean"> 4</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="korean"> 5</label><label class="radio-inline"style="margin-right:6px;" ><input type="radio" name="korean"> 6</label></form></li>
+  <li><input type="checkbox">  Other Languages not listed above - Layer  <form><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="others" checked> 1</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="others"> 2</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="others"> 3</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="others"> 4</label><label class="radio-inline" style="margin-right:6px;"><input type="radio" name="others"> 5</label><label class="radio-inline"style="margin-right:6px;" ><input type="radio" name="others"> 6</label></form></li>
+
+</ol>
+<div class="d-grid gap-2 mb-3">
+  <button class="btn product-btn" type="button">Save Language Settings</button>
+</div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- right container end  -->
+      </div>
+    </div>
+    <!-- second container end  -->
+
+    <!-- footer  -->
+    
+    <!-- footer end  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // pagination 
+      pageSize = 9;
+      var pageCount = $(".line-content").length / pageSize;
+      for (var i = 0; i < pageCount; i++) {
+        $("#pagin").append('<li><a href="#">' + (i + 1) + "</a></li> ");
+      }
+      $("#pagin li").first().find("a").addClass("current");
+      showPage = function (page) {
+        $(".line-content").hide();
+        $(".line-content").each(function (n) {
+          if (n >= pageSize * (page - 1) && n < pageSize * page) $(this).show();
+        });
+      };
+      showPage(1);
+      $("#pagin li a").click(function () {
+        $("#pagin li a").removeClass("current");
+        $(this).addClass("current");
+        showPage(parseInt($(this).text()));
+      });
+
+
+// city country toggle
+      
+
+
+
+
+      //tabs script 
+      function openCity(evt, btn_name) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(btn_name).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+  </body>
+</html>
