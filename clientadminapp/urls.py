@@ -19,5 +19,12 @@ from clientadminapp import views
 
 urlpatterns = [
     path('', views.home,name="home"),
-    path('main', views.main,name="main"),
+    path('main', views.MainPage,name="main"),
+    path('homepage', views.HomePage,name="homepage"),
+    path('products', views.ProductPage,name="products"),
+    path('portfolio', views.PortfolioPage,name="portfolio"),
+    path('members', views.MembersPage,name="members"),
+    path('roles', views.RolesPage,name="roles"),
+    path('levels', views.LevelsPage,name="levels"),
+    path('layers', views.LayersPage,name="layers"),
 ]

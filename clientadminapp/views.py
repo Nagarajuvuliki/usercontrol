@@ -8,8 +8,8 @@ def home(request):
         request.session["session_id"]=redirect_url
         return redirect('main')
     else:
-        return redirect("https://100014.pythonanywhere.com/?redirect_url=https://100093.pythonanywhere.com")
-def main(request):
+        return redirect("https://100014.pythonanywhere.com/?redirect_url=http://127.0.0.1:8000")
+def MainPage(request):
     if request.session.get("session_id"):
         context={}
         session=request.session["session_id"]
@@ -30,3 +30,33 @@ def main(request):
         context["org"]=[*set(ls)]
         context["profile"]=client_admin_res["data"][0]["profile_info"]
         return render(request,"header.html",context)
+def HomePage(request):
+    if request.session.get("session_id"):
+        if request.method=="POST":
+
+            context={}
+            return render(request,"index.html",context)
+def ProductPage(request):
+    if request.session.get("session_id"):
+        context={}
+        return render(request,"product.html",context)
+def PortfolioPage(request):
+    if request.session.get("session_id"):
+        context={}
+        return render(request,"portfolio.html",context)
+def MembersPage(request):
+    if request.session.get("session_id"):
+        context={}
+        return render(request,"members.html",context)
+def RolesPage(request):
+    if request.session.get("session_id"):
+        context={}
+        return render(request,"roles.html",context)
+def LevelsPage(request):
+    if request.session.get("session_id"):
+        context={}
+        return render(request,"levels.html",context)
+def LayersPage(request):
+    if request.session.get("session_id"):
+        context={}
+        return render(request,"layers.html",context)
