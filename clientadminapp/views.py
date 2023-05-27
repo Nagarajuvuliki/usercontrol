@@ -6,7 +6,7 @@ def home(request):
     redirect_url=request.GET.get('session_id',None)
     if redirect_url is not None:
         request.session["session_id"]=redirect_url
-        return redirect('main')
+        return redirect('homepage')
     else:
         return redirect("https://100014.pythonanywhere.com/?redirect_url=http://127.0.0.1:8000")
 def MainPage(request):
@@ -31,11 +31,13 @@ def MainPage(request):
         context["profile"]=client_admin_res["data"][0]["profile_info"]
         return render(request,"header.html",context)
 def HomePage(request):
+
     if request.session.get("session_id"):
+        context={}
         if request.method=="POST":
 
-            context={}
-            return render(request,"index.html",context)
+           return render(request,"index.html",context)
+        return render(request,"index.html",context)
 def ProductPage(request):
     if request.session.get("session_id"):
         context={}

@@ -841,5 +841,108 @@
         </div>
   </div>
   </section>
-
+  <script> 
+    var btn1 = document.getElementById("productbtn"); 
+    var btn2 = document.getElementById("portfoliobtn"); 
+    var btn3 = document.getElementById("memberbtn");
+    var btn31 = document.getElementById("teammemberbtn");
+    var btn32 = document.getElementById("teamuserbtn");
+    var btn33 = document.getElementById("teampublicbtn");
+    var btn4 = document.getElementById("rolebtn");
+    var btn5 = document.getElementById("levelbtn");
+    var btn51 = document.getElementById("level1btn");
+    var btn52 = document.getElementById("level2btn");
+    var btn53 = document.getElementById("level3btn");
+    var btn54 = document.getElementById("level4btn");
+    var btn55 = document.getElementById("level5btn");
+    var btn6 = document.getElementById("layerbtn");
+    
+    btn1.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("productlogo"); 
+    };
+    
+    btn2.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("portfolioset"); 
+    }; 
+    btn3.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("memberoptions"); 
+    }; 
+    
+    btn31.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("memberset"); 
+    };
+    
+    btn32.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("userset"); 
+    };
+    
+    btn33.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("publicset"); 
+    };
+    
+    btn4.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("roleset"); 
+    };
+    btn5.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("leveloptions"); 
+    };
+    
+    btn51.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("level1set"); 
+    };
+    
+    btn52.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("level2set"); 
+    };
+    
+    btn53.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("level3set"); 
+    };
+    
+    btn54.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("level4set"); 
+    };
+    
+    btn55.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("level5set"); 
+    };
+    
+    btn6.onclick = function(event){ 
+        event.preventDefault(); 
+        toggleDivs("layerset"); 
+    };
+    function toggleDivs(s){ 
+        //reset 
+       document.getElementById("productlogo").classList.remove("shown");
+        
+        document.getElementById("portfolioset").classList.remove("shown"); 
+        document.getElementById("memberset").classList.remove("shown");
+        document.getElementById("userset").classList.remove("shown");
+        document.getElementById("publicset").classList.remove("shown");
+         document.getElementById("memberoptions").classList.remove("shown");
+         document.getElementById("roleset").classList.remove("shown");
+          document.getElementById("level1set").classList.remove("shown");
+          document.getElementById("level2set").classList.remove("shown");
+          document.getElementById("level3set").classList.remove("shown");
+          document.getElementById("level4set").classList.remove("shown");
+          document.getElementById("level5set").classList.remove("shown");
+           document.getElementById("leveloptions").classList.remove("shown");
+           document.getElementById("layerset").classList.remove("shown");
+           
+        document.getElementById(s).classList.add("shown"); } 
+    </script> 
+    
 {% endblock product %}
