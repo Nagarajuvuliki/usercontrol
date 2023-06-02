@@ -42,6 +42,10 @@ $.ajax({
     success: function(data){
         $('#ringcontainer').css("display", "none");
         $("#form-field-level1name").val(data.level1.name)
+        $("#form-field-level2name").val(data.level2.name)
+        $("#form-field-level3name").val(data.level3.name)
+        $("#form-field-level4name").val(data.level4.name)
+        $("#form-field-level5name").val(data.level5.name)
         console.log(data.level1.name)
     
     },
