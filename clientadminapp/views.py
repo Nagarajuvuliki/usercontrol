@@ -38,7 +38,7 @@ def HomePage(request):
             field={"document_id":user["userinfo"]["userID"]}
             forg=dowellconnection("login","bangalore","login","organization","organization","1084","ABCDE","find",field,"nil")
             client_admin_res=json.loads(forg)
-            
+            context["products"]=client_admin_res["data"]["products"]
             if client_admin_res["data"] is None:
                 with open('organisation.json') as json_file:
                     data = json.load(json_file)
@@ -54,12 +54,17 @@ def HomePage(request):
                     field={"document_id":user["userinfo"]["userID"]}
                     forg=dowellconnection("login","bangalore","login","organization","organization","1084","ABCDE","find",field,"nil")
                     client_admin_res=json.loads(forg)
+                    context["products"]=client_admin_res["data"]["products"]
             try:
                 request.session["selected_wspace"]
             except:
                 request.session["selected_wspace"]=client_admin_res["data"]["myworkspaces"][0]["workspace_name"]
             context["org"]=client_admin_res["data"]
-            
+            request.session["own_wspace"]=client_admin_res["data"]["myworkspaces"][0]["workspace_name"]
+            request.session["owner_name"]=client_admin_res["data"]["myworkspaces"][0]["owner"]
+            request.session["userID"]=user["userinfo"]["userID"]
+            request.session["admin_id"]=client_admin_res["data"]["_id"]
+            context["org"]=client_admin_res["data"]
             datetime_object = datetime.strptime(user["userinfo"]["dowell_time"], '%d %b %Y %H:%M:%S')
             totalsec=(datetime.now() - datetime_object).total_seconds()
             totalmin=totalsec//60
@@ -75,6 +80,7 @@ def HomePage(request):
 def ProductPage(request):
     if request.session.get("session_id"):
         context={}
+
         return render(request,"product.html",context)
 def PortfolioPage(request):
     if request.session.get("session_id"):
@@ -90,8 +96,22 @@ def RolesPage(request):
         return render(request,"roles.html",context)
 def LevelsPage(request):
     if request.session.get("session_id"):
-        context={}
-        return render(request,"levels.html",context)
+        if request.POST["form"]=="getlevels":
+            context={}
+            admin_id=request.session["admin_id"]
+            own_wspace=request.session["own_wspace"]
+            username=request.session["username"]
+            owner=request.session["owner_name"]
+            field={"admin_id":admin_id,"wspace_name":own_wspace}
+            resp=dowellconnection("login","bangalore","login","department","department","1085","ABCDE","find",field,"nil")
+            admin_res=json.loads(resp)
+            if admin_res["data"] is None:
+                field={"admin_id":admin_id,"username":username,"wspace_name":own_wspace,"level1":{"name":"level1","items":[]},"level2":{"name":"level2","items":[]},"level3":{"name":"level3","items":[]},"level4":{"name":"level4","items":[]},"level5":{"name":"level5","items":[]}}
+                dowellconnection("login","bangalore","login","department","department","1085","ABCDE","insert",field,"nil")
+                field={"admin_id":admin_id,"wspace_name":own_wspace}
+                resp=dowellconnection("login","bangalore","login","department","department","1085","ABCDE","find",field,"nil")
+                admin_res=json.loads(resp)
+            return JsonResponse(admin_res['data'])
 def LayersPage(request):
     if request.session.get("session_id"):
         context={}

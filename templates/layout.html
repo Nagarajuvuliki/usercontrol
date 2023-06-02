@@ -341,7 +341,107 @@ input#um-submit-btn {
 }</style><!-- Your Google Analytics Plugin is missing the tracking ID -->
 </head>
 <body class="page-template-default page page-id-5880 wp-custom-logo wp-embed-responsive theme-varia woocommerce-no-js translatepress-en_US ehf-footer ehf-template-varia ehf-stylesheet-mayland woolentor_current_theme_mayland singular image-filters-enabled hide-footer-credit mobile-nav-side woolentor-empty-cart elementor-default elementor-kit-20 elementor-page elementor-page-5880">
-
+	<style>
+#ringcontainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    background:#262626;
+    z-index: 999999;
+    text-align: center;
+    display:none;
+}
+.ring
+{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:300px;
+  height:300px;
+  background:transparent;
+  border:3px solid #3c3c3c;
+  border-radius:50%;
+  text-align:center;
+  line-height:150px;
+  font-family:sans-serif;
+  font-size:20px;
+  color:#fff000;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  text-shadow:0 0 10px #fff000;
+  box-shadow:0 0 20px rgba(0,0,0,.5);
+}
+.ring:before
+{
+  content:'';
+  position:absolute;
+  top:-3px;
+  left:-3px;
+  width:100%;
+  height:100%;
+  border:3px solid transparent;
+  border-top:3px solid #fff000;
+  border-right:3px solid #fff000;
+  border-radius:50%;
+  animation:animateC 2s linear infinite;
+}
+#ringspan
+{
+  display:block;
+  position:absolute;
+  top:calc(50% - 2px);
+  left:50%;
+  width:50%;
+  height:4px;
+  background:transparent;
+  transform-origin:left;
+  animation:animate 2s linear infinite;
+}
+#ringspan:before
+{
+  content:'';
+  position:absolute;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#fff000;
+  top:-6px;
+  right:-8px;
+  box-shadow:0 0 20px #fff000;
+}
+@keyframes animateC
+{
+  0%
+  {
+    transform:rotate(0deg);
+  }
+  100%
+  {
+    transform:rotate(360deg);
+  }
+}
+@keyframes animate
+{
+  0%
+  {
+    transform:rotate(45deg);
+  }
+  100%
+  {
+    transform:rotate(405deg);
+  }
+}
+	</style>
+	<div id="ringcontainer">
+	<div class="ring">Wait levels loading
+		<span id="ringspan"></span>
+	  </div>
+	</div>
 		<div data-elementor-type="header" data-elementor-id="10972" class="elementor elementor-10972 elementor-location-header">
 		<div class="elementor-section-wrap">
 					<section class="elementor-section elementor-top-section elementor-element elementor-element-49a12a15 elementor-section-content-middle elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="49a12a15" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -1137,7 +1237,7 @@ input#um-submit-btn {
 							<div class="elementor-widget-wrap">
 						<div class="elementor-element elementor-element-96be022 elementor-align-justify MAIN elementor-widget elementor-widget-button" data-id="96be022" data-element_type="widget" id="levelbtnID" data-widget_type="button.default">
 				<div class="elementor-widget-container">
-					<div class="elementor-button-wrapper">
+					<div class="elementor-button-wrapper" id="levels_btn">
 			<a href="#" class="elementor-button-link elementor-button elementor-size-sm" role="button" id="levelbtn">
 						<span class="elementor-button-content-wrapper">
 							<span class="elementor-button-icon elementor-align-icon-left">
@@ -1146,6 +1246,11 @@ input#um-submit-btn {
 		</span>
 					</a>
 		</div>
+		<script>
+			function rl(){
+			alert("lav")
+			}
+			</script>
 				</div>
 				</div>
 						</div>
@@ -5572,7 +5677,7 @@ organisation</i></b>					</div>
 						<div class="elementor-element elementor-element-1b5b461 elementor-widget elementor-widget-text-editor" data-id="1b5b461" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
 								<div class="elementor-text-editor elementor-clearfix">
-				<div data-pm-slice="1 1 []" data-en-clipboard="true">-uxlivinglabsessionid(v004)- start- 11dowellclock()- 12systemclock()- 13serverclock()- 14userlanguage()- 15userlogintype()- 16userlocation()- 17userIP()- 18userOS()- 19userdevice()- 20userbrowser()- 21userconnectiontype()- 22productredirecturl()- 23logineventID()- 24UserID()- 25userprofile(2501userphoto(),2502faceID(),2503voiceID(),2504fingerprint(),2505firstname(),2506lastname(),2507designation(),2508teamcode(),2509email(),2510country(),2511location(),2512phonecode(),2513phonenumber(), 2514address())- 26organisationarray(26001organisation001(2600101ID,2600102orgname,2600103orgowner),26002organisation002(2600201ID,2600202orgname,2600203orgowner),26003organisation003(2600301ID,2600302orgname,2600303orgowner), 26004,26005&#8230;26999)- 27selectedproduct(2701productID(),2702productlogo(),2703platformpermissionproduct(270301member(27030101add/edit,27030102view,27030103delete,27030104admin),270302guest(27030201add/edit,27030202view,27030203delete,27030204admin),270303public(27030301add/edit,27030302view,27030303delete,27030304admin),2704productname(),2705platformpermissiondata(270501member(27050101realdata,27050102testingdata,27050103learningdata,27050104archiveddata),270502guest(27050201realdata,27050202testingdata,27050203learningdata,27050204archiveddata),270503public(27050301realdata,27050302testingdata,27050303learningdata,27050304archiveddata)),2706orgownerID(),2707organisationID(),2708orglogo(),2709userportfolios(27090001,27090002,27090003,&#8230;27099999),2710paymenttype(271001paid,271002unpaid))- 28selectedPortfolio(2801ID(),2802portfolioname(),2803membertype(),2804memberlink(),2805datatype(),2806operationalrights(),2807roleID(),2808rolename())- 29selectedportfoliolevel1(2901level1name(),2902level1ID(),2903level1itemarray(29030001,29030002,29030003&#8230;.29039999))- 30selectedportfoliolevel2(3001level2name(),3002level2ID(),3003level2itemarray(30030001,30030002,30030003&#8230;.30039999))- 31selectedportfoliolevel3(3101level3name(),3102level3ID(),3103level3itemarray(31030001,31030002,31030003&#8230;..31039999))- 32selectedportfoliolevel4(3201level4name(),3202level4ID(),3203level4itemarray(32030001,32030002,32030003&#8230;.32039999))- 33selectedportfoliolevel5(3301level5name(),3302level5ID(),3303level5itemarray(33030001,33030002,33030003&#8230;.33039999))-</div><div>34selectedsecuritylayer1((3401s1devicesarray(340100001,340100002,340100003,&#8230;.340199999),3402 s1osarray(3402001,3402002,3402003,&#8230;.3402999),3403s1browerarray(3403001,3403002,3403003,&#8230;.3403999),3404s1geolocationarray(3404x,3404xx,3404xxx,&#8230;.3404xxxxxxx),3405s1IParray(3405x,3405xx,3405xxx,..3405xxxxxxx),3406s1connectiontype(3406x,3406xx,3406xxx,&#8230;3406xxxxxxx))-</div><div>35selectedsecuritylayer2((3501s2devicesarray(350100001,350100002,350100003,&#8230;.350199999),3502 s2osarray(3502001,3502002,3502003,&#8230;.3502999),3503s2browerarray(3503001,3503002,3503003,&#8230;.3503999),3504s2geolocationarray(3504x,3504xx,3504xxx,&#8230;.3504xxxxxxx),3505s2IParray(3505x,3505xx,3505xxx,..3505xxxxxxx),3506s2connectiontype(3506x,3506xx,3506xxx,&#8230;3506xxxxxxx))-</div><div>36selectedsecuritylayer3((3601s3devicesarray(360100001,360100002,360100003,&#8230;.360199999),3602 s3osarray(3602001,3602002,3602003,&#8230;.3602999),3603s3browerarray(3603001,3603002,3603003,&#8230;.3603999),3604s3geolocationarray(3604x,3604xx,3604xxx,&#8230;.3604xxxxxxx),3605s3IParray(3605x,3605xx,3605xxx,..3605xxxxxxx),3606s3connectiontype(3606x,3606xx,3606xxx,&#8230;3606xxxxxxx))-</div><div>37selectedsecuritylayer4((3701s4devicesarray(370100001,370100002,370100003,&#8230;.370199999),3702 s4osarray(3702001,3702002,3702003,&#8230;.3702999),3703s4browerarray(3703001,3703002,3703003,&#8230;.3703999),3704s4geolocationarray(3704x,3704xx,3704xxx,&#8230;.3704xxxxxxx),3705s4IParray(3705x,3705xx,3705xxx,..3705xxxxxxx),3706s4connectiontype(3706x,3706xx,3706xxx,&#8230;3706xxxxxxx))-</div><div>38selectedsecuritylayer5((3801s5devicesarray(380100001,380100002,380100003,&#8230;.380199999),3802 s5osarray(3802001,3802002,3802003,&#8230;.3802999),3803s5browerarray(3803001,3803002,3803003,&#8230;.3803999),3804s5geolocationarray(3804x,3804xx,3804xxx,&#8230;.3804xxxxxxx),3805s5IParray(3805x,3805xx,3805xxx,..3805xxxxxxx),3806s5connectiontype(3806x,3806xx,3806xxx,&#8230;3806xxxxxxx))-</div><div>39selectedsecuritylayer6((3901s6devicesarray(390100001,390100002,390100003,&#8230;.390199999),3902 s6osarray(3902001,3902002,3902003,&#8230;.3902999),3903s6browerarray(3903001,3903002,3903003,&#8230;.3903999),3904s6geolocationarray(3904x,3904xx,3904xxx,&#8230;.3904xxxxxxx),3905s6IParray(3905x,3905xx,3905xxx,..3905xxxxxxx),3906s6connectiontype(3906x,3906xx,3906xxx,&#8230;3906xxxxxxx))</div>					</div>
+				<!-- <div data-pm-slice="1 1 []" data-en-clipboard="true">-uxlivinglabsessionid(v004)- start- 11dowellclock()- 12systemclock()- 13serverclock()- 14userlanguage()- 15userlogintype()- 16userlocation()- 17userIP()- 18userOS()- 19userdevice()- 20userbrowser()- 21userconnectiontype()- 22productredirecturl()- 23logineventID()- 24UserID()- 25userprofile(2501userphoto(),2502faceID(),2503voiceID(),2504fingerprint(),2505firstname(),2506lastname(),2507designation(),2508teamcode(),2509email(),2510country(),2511location(),2512phonecode(),2513phonenumber(), 2514address())- 26organisationarray(26001organisation001(2600101ID,2600102orgname,2600103orgowner),26002organisation002(2600201ID,2600202orgname,2600203orgowner),26003organisation003(2600301ID,2600302orgname,2600303orgowner), 26004,26005&#8230;26999)- 27selectedproduct(2701productID(),2702productlogo(),2703platformpermissionproduct(270301member(27030101add/edit,27030102view,27030103delete,27030104admin),270302guest(27030201add/edit,27030202view,27030203delete,27030204admin),270303public(27030301add/edit,27030302view,27030303delete,27030304admin),2704productname(),2705platformpermissiondata(270501member(27050101realdata,27050102testingdata,27050103learningdata,27050104archiveddata),270502guest(27050201realdata,27050202testingdata,27050203learningdata,27050204archiveddata),270503public(27050301realdata,27050302testingdata,27050303learningdata,27050304archiveddata)),2706orgownerID(),2707organisationID(),2708orglogo(),2709userportfolios(27090001,27090002,27090003,&#8230;27099999),2710paymenttype(271001paid,271002unpaid))- 28selectedPortfolio(2801ID(),2802portfolioname(),2803membertype(),2804memberlink(),2805datatype(),2806operationalrights(),2807roleID(),2808rolename())- 29selectedportfoliolevel1(2901level1name(),2902level1ID(),2903level1itemarray(29030001,29030002,29030003&#8230;.29039999))- 30selectedportfoliolevel2(3001level2name(),3002level2ID(),3003level2itemarray(30030001,30030002,30030003&#8230;.30039999))- 31selectedportfoliolevel3(3101level3name(),3102level3ID(),3103level3itemarray(31030001,31030002,31030003&#8230;..31039999))- 32selectedportfoliolevel4(3201level4name(),3202level4ID(),3203level4itemarray(32030001,32030002,32030003&#8230;.32039999))- 33selectedportfoliolevel5(3301level5name(),3302level5ID(),3303level5itemarray(33030001,33030002,33030003&#8230;.33039999))-</div><div>34selectedsecuritylayer1((3401s1devicesarray(340100001,340100002,340100003,&#8230;.340199999),3402 s1osarray(3402001,3402002,3402003,&#8230;.3402999),3403s1browerarray(3403001,3403002,3403003,&#8230;.3403999),3404s1geolocationarray(3404x,3404xx,3404xxx,&#8230;.3404xxxxxxx),3405s1IParray(3405x,3405xx,3405xxx,..3405xxxxxxx),3406s1connectiontype(3406x,3406xx,3406xxx,&#8230;3406xxxxxxx))-</div><div>35selectedsecuritylayer2((3501s2devicesarray(350100001,350100002,350100003,&#8230;.350199999),3502 s2osarray(3502001,3502002,3502003,&#8230;.3502999),3503s2browerarray(3503001,3503002,3503003,&#8230;.3503999),3504s2geolocationarray(3504x,3504xx,3504xxx,&#8230;.3504xxxxxxx),3505s2IParray(3505x,3505xx,3505xxx,..3505xxxxxxx),3506s2connectiontype(3506x,3506xx,3506xxx,&#8230;3506xxxxxxx))-</div><div>36selectedsecuritylayer3((3601s3devicesarray(360100001,360100002,360100003,&#8230;.360199999),3602 s3osarray(3602001,3602002,3602003,&#8230;.3602999),3603s3browerarray(3603001,3603002,3603003,&#8230;.3603999),3604s3geolocationarray(3604x,3604xx,3604xxx,&#8230;.3604xxxxxxx),3605s3IParray(3605x,3605xx,3605xxx,..3605xxxxxxx),3606s3connectiontype(3606x,3606xx,3606xxx,&#8230;3606xxxxxxx))-</div><div>37selectedsecuritylayer4((3701s4devicesarray(370100001,370100002,370100003,&#8230;.370199999),3702 s4osarray(3702001,3702002,3702003,&#8230;.3702999),3703s4browerarray(3703001,3703002,3703003,&#8230;.3703999),3704s4geolocationarray(3704x,3704xx,3704xxx,&#8230;.3704xxxxxxx),3705s4IParray(3705x,3705xx,3705xxx,..3705xxxxxxx),3706s4connectiontype(3706x,3706xx,3706xxx,&#8230;3706xxxxxxx))-</div><div>38selectedsecuritylayer5((3801s5devicesarray(380100001,380100002,380100003,&#8230;.380199999),3802 s5osarray(3802001,3802002,3802003,&#8230;.3802999),3803s5browerarray(3803001,3803002,3803003,&#8230;.3803999),3804s5geolocationarray(3804x,3804xx,3804xxx,&#8230;.3804xxxxxxx),3805s5IParray(3805x,3805xx,3805xxx,..3805xxxxxxx),3806s5connectiontype(3806x,3806xx,3806xxx,&#8230;3806xxxxxxx))-</div><div>39selectedsecuritylayer6((3901s6devicesarray(390100001,390100002,390100003,&#8230;.390199999),3902 s6osarray(3902001,3902002,3902003,&#8230;.3902999),3903s6browerarray(3903001,3903002,3903003,&#8230;.3903999),3904s6geolocationarray(3904x,3904xx,3904xxx,&#8230;.3904xxxxxxx),3905s6IParray(3905x,3905xx,3905xxx,..3905xxxxxxx),3906s6connectiontype(3906x,3906xx,3906xxx,&#8230;3906xxxxxxx))</div>					</div> -->
 						</div>
 				</div>
 						</div>
@@ -6332,64 +6437,64 @@ var wc_single_product_params = {"i18n_required_rating_text":"Please select a rat
 		</script>
 <script src="{% static 'js/ajaxcall.js' %}"></script>
 <script>
-	var userproductarray = [{
-	  productname: "Workflow AI",
-	  url: "https://uxlivinglab.com/wp-content/uploads/2022/12/Workflow-AI-2.png"
-	}, {
-	  productname: "User Experience Live",
-	  url: "https://uxlivinglab.com/wp-content/uploads/2022/12/UX-Live-1.png"
-	}, {
-	  productname: "Wifi QR Code",
-	  url: "https://uxlivinglab.com/wp-content/uploads/2022/12/Wifi-QR-Code-1.png"
-	}, {
-	  productname: "Socialmedia Automation",
-	  url: "https://uxlivinglab.com/wp-content/uploads/2022/12/Social-media-automation-1.png"
-	}
-	, {
-	  productname: "Logo Scan",
+	// var userproductarray = [{
+	//   productname: "Workflow AI",
+	//   url: "https://uxlivinglab.com/wp-content/uploads/2022/12/Workflow-AI-2.png"
+	// }, {
+	//   productname: "User Experience Live",
+	//   url: "https://uxlivinglab.com/wp-content/uploads/2022/12/UX-Live-1.png"
+	// }, {
+	//   productname: "Wifi QR Code",
+	//   url: "https://uxlivinglab.com/wp-content/uploads/2022/12/Wifi-QR-Code-1.png"
+	// }, {
+	//   productname: "Socialmedia Automation",
+	//   url: "https://uxlivinglab.com/wp-content/uploads/2022/12/Social-media-automation-1.png"
+	// }
+	// , {
+	//   productname: "Logo Scan",
 	 
-	}, {
-	  productname: "Living Lab Chat",
-	  url: "https://uxlivinglab.com/wp-content/uploads/2022/12/Livinglab-chat-1.png"
-	}];
+	// }, {
+	//   productname: "Living Lab Chat",
+	//   url: "https://uxlivinglab.com/wp-content/uploads/2022/12/Livinglab-chat-1.png"
+	// }];
 	
-	var producthorizontalspacer= document.getElementsByClassName("product-horizontal-spacer")
+	// var producthorizontalspacer= document.getElementsByClassName("product-horizontal-spacer")
 	
-	if(userproductarray.length%3==1){
-	   producthorizontalspacer[0].style.flex="1 1 calc(60% - 20px)"
-	   producthorizontalspacer[0].style.height="300px"
-	}
-	if(userproductarray.length%3==2){
-	   producthorizontalspacer[0].style.flex="1 1 calc(30% - 20px)"
-	   producthorizontalspacer[0].style.height="300px"
-	}
+	// if(userproductarray.length%3==1){
+	//    producthorizontalspacer[0].style.flex="1 1 calc(60% - 20px)"
+	//    producthorizontalspacer[0].style.height="300px"
+	// }
+	// if(userproductarray.length%3==2){
+	//    producthorizontalspacer[0].style.flex="1 1 calc(30% - 20px)"
+	//    producthorizontalspacer[0].style.height="300px"
+	// }
 	
 	
 	
-	var allproductsarray = document.getElementsByClassName("eael-image-accordion-hover");
-	var allproducts = Array.from(allproductsarray);
+	// var allproductsarray = document.getElementsByClassName("eael-image-accordion-hover");
+	// var allproducts = Array.from(allproductsarray);
 	
-	for (var i = 0; i < allproducts.length; i++) {
-	  var productImageTitle = allproducts[i].getAttribute("data-tab");
+	// for (var i = 0; i < allproducts.length; i++) {
+	//   var productImageTitle = allproducts[i].getAttribute("data-tab");
 	  
 	  
 	
-	  var isMatched = false;
+	//   var isMatched = false;
 	
-	  for (var userproduct of userproductarray) {
-		if (userproduct.productname === productImageTitle) {
-		  isMatched = true;
-		  break;
-		}
-	  }
+	//   for (var userproduct of userproductarray) {
+	// 	if (userproduct.productname === productImageTitle) {
+	// 	  isMatched = true;
+	// 	  break;
+	// 	}
+	//   }
 	
-	  if (isMatched) {
-		allproducts[i].style.display = "block";
-		console.log("matched");
-	  } else {
-		allproducts[i].style.display = "none";
-	  }
-	}
+	//   if (isMatched) {
+	// 	allproducts[i].style.display = "block";
+	// 	console.log("matched");
+	//   } else {
+	// 	allproducts[i].style.display = "none";
+	//   }
+	// }
 	
 	
 			</script>	

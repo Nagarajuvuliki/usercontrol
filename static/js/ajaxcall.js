@@ -24,3 +24,29 @@ $('#selectorg').on('change', function(e){
         $('#org_msg').html(data.msg)
         }});});
         console.log("{{request.session.username}}")
+$('#levels_btn').on('click', function(e){
+e.preventDefault();
+$.ajax({
+    type : "POST",
+    url: "levels",
+    data: {
+    form:"getlevels",
+    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+    // csrfmiddlewaretoken: '{{ csrf_token }}',
+
+    dataType: "json",
+    },
+    beforeSend: function() {
+        $('#ringcontainer').css("display", "block");
+    },
+    success: function(data){
+        $('#ringcontainer').css("display", "none");
+        $("#form-field-level1name").val(data.level1.name)
+        console.log(data.level1.name)
+    
+    },
+
+    failure: function() {
+    $('#org_msg').html(data.msg)
+    }});});
+    console.log("{{request.session.username}}")
