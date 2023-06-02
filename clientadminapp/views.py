@@ -38,13 +38,29 @@ def HomePage(request):
             field={"document_id":user["userinfo"]["userID"]}
             forg=dowellconnection("login","bangalore","login","organization","organization","1084","ABCDE","find",field,"nil")
             client_admin_res=json.loads(forg)
-            if request.session["selected_wspace"]:
-                pass
-            else:
+            
+            if client_admin_res["data"] is None:
+                with open('organisation.json') as json_file:
+                    data = json.load(json_file)
+                    data["document_id"]=user["userinfo"]["userID"]
+                    data["username"]=user["userinfo"]["username"]
+                    data["first_name"]=user["userinfo"]["first_name"]
+                    data["last_name"]=user["userinfo"]["last_name"]
+                    data["email"]=user["userinfo"]["email"]
+                    orgs={"owner": user["userinfo"]["username"], "username": user["userinfo"]["username"], "workspace_name": user["userinfo"]["username"], "logo": ""}
+                    data["myworkspaces"].append(orgs)
+                    field1=data
+                    dowellconnection("login","bangalore","login","organization","organization","1084","ABCDE","insert",field1,"nil")
+                    field={"document_id":user["userinfo"]["userID"]}
+                    forg=dowellconnection("login","bangalore","login","organization","organization","1084","ABCDE","find",field,"nil")
+                    client_admin_res=json.loads(forg)
+            try:
+                request.session["selected_wspace"]
+            except:
                 request.session["selected_wspace"]=client_admin_res["data"]["myworkspaces"][0]["workspace_name"]
             context["org"]=client_admin_res["data"]
             
-            datetime_object = datetime.strptime(user["userinfo"]["dowell_time"], '%d %B %Y %H:%M:%S')
+            datetime_object = datetime.strptime(user["userinfo"]["dowell_time"], '%d %b %Y %H:%M:%S')
             totalsec=(datetime.now() - datetime_object).total_seconds()
             totalmin=totalsec//60
             totalhr=int(totalmin//60)
@@ -80,3 +96,18 @@ def LayersPage(request):
     if request.session.get("session_id"):
         context={}
         return render(request,"layers.html",context)
+def LogoutPage(request):
+    d=request.session.get("session_id")
+    #return HttpResponse(d)
+    #equest.session.modified = True
+    if d:
+        try:
+            del request.session["username"]
+            del request.session["selected_wspace"]
+            # del request.session["orgname"]
+            del request.session["session_id"]
+            return redirect("https://100014.pythonanywhere.com/sign-out")
+        except:
+            return redirect("https://100014.pythonanywhere.com/sign-out")
+    else:
+        return redirect("https://100014.pythonanywhere.com/sign-out")

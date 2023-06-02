@@ -27,4 +27,5 @@ urlpatterns = [
     path('roles', views.RolesPage,name="roles"),
     path('levels', views.LevelsPage,name="levels"),
     path('layers', views.LayersPage,name="layers"),
+    path('logout', views.LogoutPage,name="logout"),
 ]
