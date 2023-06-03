@@ -84,6 +84,8 @@ def ProductPage(request):
         return render(request,"product.html",context)
 def PortfolioPage(request):
     if request.session.get("session_id"):
+        if request.method=="POST":
+            pass
         context={}
         return render(request,"portfolio.html",context)
 def MembersPage(request):
@@ -112,6 +114,17 @@ def LevelsPage(request):
                 resp=dowellconnection("login","bangalore","login","department","department","1085","ABCDE","find",field,"nil")
                 admin_res=json.loads(resp)
             return JsonResponse(admin_res['data'])
+        if request.POST["form"]=="levelnames":
+            level=request.POST["level"]
+            levelname=request.POST["level_name"]
+            field={"admin_id":request.session["admin_id"],"wspace_name":request.session["own_wspace"]}
+            resp=dowellconnection("login","bangalore","login","department","department","1085","ABCDE","find",field,"nil")
+            admin_res=json.loads(resp)
+            admin_res["data"][level]["name"]=levelname
+            update={level:admin_res["data"][level]}
+            resp=dowellconnection("login","bangalore","login","department","department","1085","ABCDE","update",field,update)
+            
+            return JsonResponse({"name":levelname,"msg":"updated Successfully"})
 def LayersPage(request):
     if request.session.get("session_id"):
         context={}

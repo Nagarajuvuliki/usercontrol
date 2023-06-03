@@ -342,6 +342,19 @@ input#um-submit-btn {
 </head>
 <body class="page-template-default page page-id-5880 wp-custom-logo wp-embed-responsive theme-varia woocommerce-no-js translatepress-en_US ehf-footer ehf-template-varia ehf-stylesheet-mayland woolentor_current_theme_mayland singular image-filters-enabled hide-footer-credit mobile-nav-side woolentor-empty-cart elementor-default elementor-kit-20 elementor-page elementor-page-5880">
 	<style>
+#ringcontainer1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    background:#262626;
+    z-index: 999999;
+    text-align: center;
+    display:none;
+}
 #ringcontainer {
     position: fixed;
     top: 0;
@@ -361,13 +374,13 @@ input#um-submit-btn {
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  width:300px;
-  height:300px;
+  width:250px;
+  height:250px;
   background:transparent;
   border:3px solid #3c3c3c;
   border-radius:50%;
   text-align:center;
-  line-height:150px;
+  line-height:250px;
   font-family:sans-serif;
   font-size:20px;
   color:#fff000;
@@ -438,10 +451,15 @@ input#um-submit-btn {
 }
 	</style>
 	<div id="ringcontainer">
-	<div class="ring">Wait levels loading
+	<div class="ring">Fetching
 		<span id="ringspan"></span>
 	  </div>
 	</div>
+	<div id="ringcontainer1">
+		<div class="ring">inserting
+			<span id="ringspan"></span>
+		  </div>
+		</div>
 		<div data-elementor-type="header" data-elementor-id="10972" class="elementor elementor-10972 elementor-location-header">
 		<div class="elementor-section-wrap">
 					<section class="elementor-section elementor-top-section elementor-element elementor-element-49a12a15 elementor-section-content-middle elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="49a12a15" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -3447,12 +3465,15 @@ organisation</i></b>					</div>
 				</div>
 				<div class="elementor-element elementor-element-6c6a127 elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="6c6a127" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
 				<div class="elementor-widget-container">
-					<form class="elementor-form" method="post" name="Form1">
+					<form id="level1name" method="post" name="Form1">
 			<input type="hidden" name="post_id" value="5880"/>
 			<input type="hidden" name="form_id" value="6c6a127"/>
+			{%csrf_token%}
+			<input type="hidden" name="form" value="levels"/>
 			<input type="hidden" name="referer_title" value="uxlivinglab - innovating from people&#039;s mind" />
 
 							<input type="hidden" name="queried_id" value="5880"/>
+							
 			
 			<div class="elementor-form-fields-wrapper elementor-labels-above">
 								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-level1name elementor-col-100">
@@ -3469,6 +3490,7 @@ organisation</i></b>					</div>
 													</span>
 					</button>
 				</div>
+				<span id="msglevel1" style="color:green"></span>
 			</div>
 		</form>
 				</div>
@@ -3652,9 +3674,11 @@ organisation</i></b>					</div>
 				</div>
 				<div class="elementor-element elementor-element-322eb5f elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="322eb5f" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
 				<div class="elementor-widget-container">
-					<form class="elementor-form" method="post" name="Form1">
+					<form id="level2name" method="post" name="Form1">
 			<input type="hidden" name="post_id" value="5880"/>
 			<input type="hidden" name="form_id" value="322eb5f"/>
+			{%csrf_token%}
+			<input type="hidden" name="form" value="levels"/>
 			<input type="hidden" name="referer_title" value="uxlivinglab - innovating from people&#039;s mind" />
 
 							<input type="hidden" name="queried_id" value="5880"/>
@@ -3674,6 +3698,7 @@ organisation</i></b>					</div>
 													</span>
 					</button>
 				</div>
+				<span id="msglevel2" style="color:green"></span>
 			</div>
 		</form>
 				</div>
@@ -3857,7 +3882,8 @@ organisation</i></b>					</div>
 				</div>
 				<div class="elementor-element elementor-element-536ee6c elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="536ee6c" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
 				<div class="elementor-widget-container">
-					<form class="elementor-form" method="post" name="Form1">
+					<form id="level3name" method="post" name="Form1">
+						{%csrf_token%}
 			<input type="hidden" name="post_id" value="5880"/>
 			<input type="hidden" name="form_id" value="536ee6c"/>
 			<input type="hidden" name="referer_title" value="uxlivinglab - innovating from people&#039;s mind" />
@@ -3879,6 +3905,7 @@ organisation</i></b>					</div>
 													</span>
 					</button>
 				</div>
+				<span id="msglevel3" style="color:green"></span>
 			</div>
 		</form>
 				</div>
@@ -4062,8 +4089,9 @@ organisation</i></b>					</div>
 				</div>
 				<div class="elementor-element elementor-element-4915b20 elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="4915b20" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
 				<div class="elementor-widget-container">
-					<form class="elementor-form" method="post" name="Form1">
+					<form id="level4name" method="post" name="Form1">
 			<input type="hidden" name="post_id" value="5880"/>
+			{%csrf_token%}
 			<input type="hidden" name="form_id" value="4915b20"/>
 			<input type="hidden" name="referer_title" value="uxlivinglab - innovating from people&#039;s mind" />
 
@@ -4084,6 +4112,7 @@ organisation</i></b>					</div>
 													</span>
 					</button>
 				</div>
+				<span id="msglevel4" style="color:green"></span>
 			</div>
 		</form>
 				</div>
@@ -4267,8 +4296,9 @@ organisation</i></b>					</div>
 				</div>
 				<div class="elementor-element elementor-element-aa3761f elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="aa3761f" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
 				<div class="elementor-widget-container">
-					<form class="elementor-form" method="post" name="Form1">
+					<form id="level5name" method="post" name="Form1">
 			<input type="hidden" name="post_id" value="5880"/>
+			{%csrf_token%}
 			<input type="hidden" name="form_id" value="aa3761f"/>
 			<input type="hidden" name="referer_title" value="uxlivinglab - innovating from people&#039;s mind" />
 
@@ -4289,6 +4319,7 @@ organisation</i></b>					</div>
 													</span>
 					</button>
 				</div>
+				<span id="msglevel5" style="color:green"></span>
 			</div>
 		</form>
 				</div>
@@ -5749,16 +5780,20 @@ var btn6 = document.getElementById("layerbtn");
 
 btn1.onclick = function(event){ 
     event.preventDefault(); 
-    toggleDivs("productlogo"); 
+    toggleDivs("productlogo");
+	$('#leveloptions').hide();
+
 };
 
 btn2.onclick = function(event){ 
     event.preventDefault(); 
-    toggleDivs("portfolioset"); 
+    toggleDivs("portfolioset");
+	$('#leveloptions').hide(); 
 }; 
 btn3.onclick = function(event){ 
     event.preventDefault(); 
-    toggleDivs("memberoptions"); 
+    toggleDivs("memberoptions");
+	$('#leveloptions').hide(); 
 }; 
 
 btn31.onclick = function(event){ 
@@ -5773,21 +5808,23 @@ btn32.onclick = function(event){
 
 btn33.onclick = function(event){ 
     event.preventDefault(); 
-    toggleDivs("publicset"); 
+    toggleDivs("publicset");
 };
 
 btn4.onclick = function(event){ 
     event.preventDefault(); 
-    toggleDivs("roleset"); 
+    toggleDivs("roleset");
+	$('#leveloptions').hide();
 };
 btn5.onclick = function(event){ 
-    event.preventDefault(); 
-    toggleDivs("leveloptions"); 
+    event.preventDefault();
+	$('#leveloptions').show();
+    //toggleDivs("leveloptions"); 
 };
 
 btn51.onclick = function(event){ 
     event.preventDefault(); 
-    toggleDivs("level1set"); 
+    toggleDivs("level1set");
 };
 
 btn52.onclick = function(event){ 
@@ -5812,7 +5849,8 @@ btn55.onclick = function(event){
 
 btn6.onclick = function(event){ 
     event.preventDefault(); 
-    toggleDivs("layerset"); 
+    toggleDivs("layerset");
+	$('#leveloptions').hide();
 };
 function toggleDivs(s){ 
     //reset 
